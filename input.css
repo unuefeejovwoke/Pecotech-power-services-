@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+      @apply text-black bg-white;
+    }
+    section {
+      @apply py-[28px] lg:py-[45px];
+    }
+    .pad{
+      @apply px-[1.5rem] md:px-[3rem] lg:px-[5rem] max-w-[1350px] mx-auto;
+    }
+    button{
+      @apply py-2 px-7 font-semibold bg-primary rounded-lg;
+    }
+  }
+  
