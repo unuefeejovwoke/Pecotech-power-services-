@@ -15,5 +15,8 @@
     button{
       @apply py-2 px-7 font-semibold bg-primary rounded-lg hover:bg-grey;
     }
+    label{
+      @apply font-semibold;
+    }
   }
   
