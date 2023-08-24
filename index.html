@@ -127,7 +127,7 @@
     <!-- ############## SERVICE request form  ############### -->
     <div
       id="serviceForm"
-      class="w-screen h-screen fixed flex items-center justify-center top-0 backdrop-brightness-50 z-40 text-sm"
+      class="w-screen h-screen fixed flex hidden items-center justify-center top-0 backdrop-brightness-50 z-40 text-sm"
     >
       <div class="p-5 relative bg-white max-w-[420px] m-3 rounded-lg">
         <span class="absolute cursor-pointer right-4 text-xl serviceFormBtn">
@@ -168,10 +168,43 @@
             id=""
             placeholder="Phone Number"
           />
-          <p for="quotation">Send Quotation</p>
+          <span class="flex justify-between relative mb-2">
+            <p class="font-semibold">Send Quotation</p>
+            <span id="srf-info-btn">
+              <i class="fa-regular fa-circle-question text-primary"></i>
+            </span>
+
+            <div
+              class="absolute bg-primary p-3 rounded-lg top-5 hidden"
+              id="srf-info"
+            >
+              <h2 class="font-semibold">Send Quotation</h2>
+              <p>
+                Have a building drawing you want us to wire, or an estimate you
+                want us to work with, or a sample (CCTV camera, solar panel,
+                etc) of what you require us to install for you? send it via
+                image or PDF
+              </p>
+            </div>
+          </span>
           <span>
             <label for="pdf"
-              >PDF <input type="file" name="pdf" id="" placeholder="pdf"  (change)="fileChanged($event)"
+              >PDF
+              <input
+                type="file"
+                name="pdf"
+                id=""
+                placeholder="pdf"
+                (change)="fileChanged($event)"
+            /></label>
+            <label for="pdf"
+              >Image
+              <input
+                type="file"
+                name="pdf"
+                id=""
+                placeholder="pdf"
+                (change)="fileChanged($event)"
             /></label>
 
             <!-- <input type="file" name="image" id="" placeholder="image" /> -->

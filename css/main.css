@@ -648,6 +648,11 @@ label {
   margin-right: 0.5rem;
 }
 
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -671,16 +676,6 @@ label {
 .my-7 {
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
-}
-
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
 }
 
 .-mt-32 {
@@ -741,6 +736,10 @@ label {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .mt-6 {
@@ -1067,6 +1066,86 @@ label {
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
+/* ######### TESTIMONIAL SLIDER ######## */
+
+.wrapper {
+  background-color: #ffffff;
+  width: 80vw;
+  max-width: 41em;
+  border-radius: 0.6em;
+  box-shadow: 0 1.8em 3em rgba(1, 17, 39, 0.15);
+  display: flex;
+}
+
+.testimonial-container {
+  width: 85%;
+  height: 100%;
+  position: relative;
+  margin: auto;
+  padding: 1.8em 1.2em;
+}
+
+.wrapper button {
+  font-size: 1.8em;
+  height: 2.2em;
+  width: 2.2em;
+  background-color: #ffffff;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border: none;
+  color: #0a69ed;
+  box-shadow: 0 0 1em rgba(1, 17, 39, 0.25);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+button#next {
+  right: -1.1em;
+}
+
+button#prev {
+  left: -1.1em;
+}
+
+.testimonial-container p {
+  color: #8c8c90;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 2em;
+  letter-spacing: 0.05em;
+}
+
+.testimonial-container img {
+  display: block;
+  margin: 1.8em auto 1.25em auto;
+  border-radius: 50%;
+  width: 4.4em;
+}
+
+.testimonial-container h3 {
+  color: #2d3d67;
+  font-size: 1em;
+  text-align: center;
+}
+
+.testimonial-container h6 {
+  color: #bcc4da;
+  font-size: 0.9em;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  .wrapper {
+    font-size: 14px;
+  }
+}
+
+/* ############### END TESTIMONIAL SLIDER ############ */
+
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
   color: rgb(251 204 52 / var(--tw-text-opacity));
@@ -1132,6 +1211,11 @@ label {
     line-height: 2.25rem;
   }
 
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -1144,24 +1228,9 @@ label {
 }
 
 @media (min-width: 1045px) {
-  .lg\:my-6 {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .lg\:my-8 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .lg\:my-12 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .lg\:my-3 {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+  .lg\:my-14 {
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
   }
 
   .lg\:ml-3 {
@@ -1178,10 +1247,6 @@ label {
 
   .lg\:hidden {
     display: none;
-  }
-
-  .lg\:min-w-\[30vw\] {
-    min-width: 30vw;
   }
 
   .lg\:min-w-\[35vw\] {
@@ -1209,14 +1274,19 @@ label {
     padding-bottom: 85px;
   }
 
-  .lg\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 
   .lg\:text-6xl {
@@ -1228,27 +1298,4 @@ label {
     font-size: 4.5rem;
     line-height: 1;
   }
-
-  .lg\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
 }
-
-@media (min-width: 1300px) {
-  .xl\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  .xl\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
-  .xl\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-}
-  
