@@ -37,10 +37,11 @@ const tabPanes = document.querySelectorAll(".tab-pane");
 tabButtons.forEach((span, index) => {
   span.addEventListener("click", () => {
     tabButtons.forEach((btn) => {
-      btn.classList.remove("bg-grey");
       btn.classList.add("bg-primary");
+      btn.classList.remove("bg-grey");
     });
     span.classList.add("bg-grey");
+    span.classList.remove("bg-primary");
 
     tabPanes.forEach((pane) => pane.classList.add("hidden"));
     tabPanes[index].classList.remove("hidden");
