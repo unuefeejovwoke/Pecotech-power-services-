@@ -21,6 +21,7 @@ module.exports = {
         homeautobg: "url('/assets/img/homeautobg.png')",
         solarbg: "url('/assets/img/solarinstbg.png')",
         cctvbg: "url('/assets/img/cctvinstbg.png')",
+        mapbg: "url('/assets/img/mapbg.png')",
       },
     },
   },
