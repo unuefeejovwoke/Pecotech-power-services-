@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pecotech - Services</title>
+    <title>Pecotech</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,9 +15,9 @@
   </head>
   <body class="font-[Montserrat]">
     <!-- TOP BANNER -->
-    <div class="bg-primary py-2 text-[12px]">
+    <div class="bg-primary py-2 text-[12px] z-30">
       <div
-        class="pad flex justify-between font-semibold flex-col items-center text-center md:flex-row"
+        class="pad flex justify-between font-semibold flex-col items-center text-center md:flex-row z-40"
       >
         <div>Reliable Solutions To Your Home, Available 24/7</div>
         <div class="flex items-center flex-col lg:flex-row">
@@ -62,7 +62,7 @@
               <li class="hover:text-primary">About</li>
             </a>
             <a href="./services.html">
-              <li class="text-primary">Services</li>
+              <li class="hover:text-primary">Services</li>
             </a>
             <a href="/portfolio.html">
               <li class="hover:text-primary">Portfolio</li>
@@ -74,7 +74,7 @@
               <li class="hover:text-primary">Contact Us</li>
             </a>
             <a href="/login.html">
-              <i class="fa-solid fa-user hover:text-primary"></i>
+              <i class="fa-solid fa-user text-primary"></i>
             </a>
           </ul>
 
@@ -98,7 +98,7 @@
                 <li class="hover:text-primary">About</li>
               </a>
               <a href="./services.html">
-                <li class="text-primary">Services</li>
+                <li class="hover:text-primary">Services</li>
               </a>
               <a href="/portfolio.html">
                 <li class="hover:text-primary">Portfolio</li>
@@ -110,7 +110,7 @@
                 <li class="hover:text-primary">Contact Us</li>
               </a>
               <a href="/login.html">
-                <i class="fa-solid fa-user hover:text-primary"></i>
+                <i class="fa-solid fa-user text-primary"></i>
               </a>
               <button class="serviceFormBtn">
                 GET A QUOTE <i class="fa-solid fa-arrow-right ml-1"></i>
@@ -122,154 +122,75 @@
     </nav>
     <!--############## END OF NAV ############## -->
 
-    <!-- ############ BEGIN HERO ############### -->
+    <!-- ########## BANNER ########## -->
     <div class="bg-breadcrum">
       <section
         class="text-white backdrop-brightness-50 h-full py-[58px] lg:py-[85px]"
       >
         <div class="pad">
-          <h4 class="font-semibold md:text-2xl">
-            Home <i class="fa-solid fa-angles-right mx-2"></i>
-            <span class="text-primary">Services</span>
-          </h4>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl mt-2 font-extrabold">
-            <span class="border-b-4 border-b-primary">Servic</span>es
+          <h1
+            class="text-xl md:text-3xl lg:text-6xl mt-2 font-extrabold text-primary"
+          >
+            <span class="border-b-4 border-b-primary text-white">Edit</span>
+            Profile
           </h1>
         </div>
       </section>
     </div>
-    <!-- ############## END HERO ########### -->
-    <!-- ############## SERVICE CONTENT ############-->
+    <!-- ########## END OF BANNER ########## -->
+
+    <!-- ############## EDIT PROFILE FORM ############## -->
     <section>
-      <div class="pad">
-        <div class="text-center">
-          <h1 class="text-2xl md:text-5xl lg:text-7xl font-bold">
-            Make the right call for all your project -
-            <span class="text-grey">Small & Large.</span>
-          </h1>
-        </div>
+      <div class="pad grid grid-cols-1 md:grid-cols-2">
+        <div class="mr-5 lg:mr-10">
+          <div class="flex flex-col items-center text-center">
+            <img src="./assets/img/flogo.png" alt="logo" />
+            <h1 class="font-bold text-2xl">Edit Profile</h1>
+            <p class="my-2">Edit the required fields and save changes</p>
+          </div>
+          <form class="mt-6" action="">
+            <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="text"
+              value="Allan Freeborn"
+            />
+            <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="email"
+              value="allanfreeborn@email.com"
+            />
+            <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="password"
+              placeholder="Old Password"
+            />
+            <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="password"
+              placeholder="New Password"
+            />
+            <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="password"
+              placeholder="Confirm New Password"
+            />
 
-        <h2 class="font-semibold text-2xl mt-4 md:text-3xl lg:text-4xl md:mt-8">
-          Explore our
-          <span class="text-primary border-b-2 border-b-grey">services</span>
-        </h2>
-
-        <div class="flex flex-col md:flex-row mt-6 gap-3 shadow-xl">
-          <div class="md:max-w-[45%] lg:max-w-[38%]">
-            <img src="./assets/img/home.png" alt="home automation" />
-          </div>
-          <div class="p-3 md:w-[55%] flex items-center">
-            <div>
-              <h2 class="font-semibold text-xl md:text-2xl">Home Automation</h2>
-              <p class="my-3 md:my-4 md:text-xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-                placeat, minima quas recusandae dicta explicabo repellendus iste
-                fugit molestiae aspernatur. Sunt laborum repudiandae voluptatum
-                sapiente cumque obcaecati non commodi laboriosam.
-              </p>
-              <p class="text-primary underline serviceFormBtn font-semibold cursor-pointer">REQUEST SERVICE</p>
-            </div>
-          </div>
+            <button class="w-full my-4">Save Changes</button>
+          </form>
         </div>
-        <div class="flex flex-col md:flex-row-reverse mt-6 gap-3 shadow-xl">
-          <div class="md:max-w-[45%] lg:max-w-[38%]">
-            <img src="./assets/img/elec.png" alt="home automation" />
+        <div class="rounded-lg overflow-hidden relative max-w-[400px] h-fit mx-auto">
+          <div class="absolute top-3 z-10">
+            <img src="./assets/img/icon.png" alt="pecotech icon" />
           </div>
-          <div class="p-3 md:w-[55%] flex items-center">
-            <div>
-              <h2 class="font-semibold text-xl md:text-2xl">
-                Electrical Wiring
-              </h2>
-              <p class="my-3 md:my-4 md:text-xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-                placeat, minima quas recusandae dicta explicabo repellendus iste
-                fugit molestiae aspernatur. Sunt laborum repudiandae voluptatum
-                sapiente cumque obcaecati non commodi laboriosam.
-              </p>
-              <p class="text-primary underline serviceFormBtn font-semibold cursor-pointer">REQUEST SERVICE</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row mt-6 gap-3 shadow-xl">
-          <div class="md:max-w-[45%] lg:max-w-[38%]">
-            <img src="./assets/img/sola.png" alt="home automation" />
-          </div>
-          <div class="p-3 md:w-[55%] flex items-center">
-            <div>
-              <h2 class="font-semibold text-xl md:text-2xl">
-                Solar Installation
-              </h2>
-              <p class="my-3 md:my-4 md:text-xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-                placeat, minima quas recusandae dicta explicabo repellendus iste
-                fugit molestiae aspernatur. Sunt laborum repudiandae voluptatum
-                sapiente cumque obcaecati non commodi laboriosam.
-              </p>
-              <p class="text-primary underline serviceFormBtn font-semibold cursor-pointer">REQUEST SERVICE</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row-reverse mt-6 gap-3 shadow-xl">
-          <div class="md:max-w-[45%] lg:max-w-[38%]">
-            <img src="./assets/img/cctv.png" alt="home automation" />
-          </div>
-          <div class="p-3 md:w-[55%] flex items-center">
-            <div>
-              <h2 class="font-semibold text-xl md:text-2xl">
-                CCTV Installation
-              </h2>
-              <p class="my-3 md:my-4 md:text-xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-                placeat, minima quas recusandae dicta explicabo repellendus iste
-                fugit molestiae aspernatur. Sunt laborum repudiandae voluptatum
-                sapiente cumque obcaecati non commodi laboriosam.
-              </p>
-              <p class="text-primary underline serviceFormBtn font-semibold cursor-pointer">REQUEST SERVICE</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row mt-6 gap-3 shadow-xl">
-          <div class="md:max-w-[45%] lg:max-w-[38%]">
-            <img src="./assets/img/idoor.png" alt="home automation" />
-          </div>
-          <div class="p-3 md:w-[55%] flex items-center">
-            <div>
-              <h2 class="font-semibold text-xl md:text-2xl">Indoor Lighting</h2>
-              <p class="my-3 md:my-4 md:text-xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-                placeat, minima quas recusandae dicta explicabo repellendus iste
-                fugit molestiae aspernatur. Sunt laborum repudiandae voluptatum
-                sapiente cumque obcaecati non commodi laboriosam.
-              </p>
-              <p class="text-primary underline serviceFormBtn font-semibold cursor-pointer">REQUEST SERVICE</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row-reverse mt-6 gap-3 shadow-xl">
-          <div class="md:max-w-[45%] lg:max-w-[38%]">
-            <img src="./assets/img/fa.png" alt="home automation" />
-          </div>
-          <div class="p-3 md:w-[55%] flex items-center">
-            <div>
-              <h2 class="font-semibold text-xl md:text-2xl">
-                Ceiling Fan Installation
-              </h2>
-              <p class="my-3 md:my-4 md:text-xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-                placeat, minima quas recusandae dicta explicabo repellendus iste
-                fugit molestiae aspernatur. Sunt laborum repudiandae voluptatum
-                sapiente cumque obcaecati non commodi laboriosam.
-              </p>
-              <p class="text-primary underline serviceFormBtn font-semibold cursor-pointer">REQUEST SERVICE</p>
-            </div>
-          </div>
+          <div class="p-2 px-6 rounded-lg cursor-pointer text-3xl bg-grey absolute bottom-6 right-6"><i class="fa-solid fa-camera "></i></div>
+          <img src="./assets/img/profile.png" alt="pecotech engineer" />
         </div>
       </div>
     </section>
-    <!-- ############## END OF SERVICE CONTENT ############-->
+    <!-- ############## END EDIT PROFILE FORM ############## -->
+    <section></section>
+    <section></section>
 
-    <section></section>
-    <section></section>
     <!-- ############## SERVICE request form  ############### -->
     <div
       id="serviceForm"
