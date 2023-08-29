@@ -50,18 +50,16 @@ tabButtons.forEach((span, index) => {
 // END ACCOUNT TABS
 
 //  FAQ STUFF
-document.addEventListener("DOMContentLoaded", () => {
-  const accordionButtons = document.querySelectorAll(".bg-white span");
+  const accordionButtons = document.querySelectorAll(".faq span");
 
   accordionButtons.forEach((span) => {
     span.addEventListener("click", () => {
       const content = span.nextElementSibling;
       content.classList.toggle("hidden");
 
-      const icon = span.querySelector(".svg");
-      icon.classList.toggle("rotate-180");
+      const icon = span.querySelector(".svg"); 
+      icon.classList.toggle("rotate-180"); 
     });
   });
-});
 
 // END FAQ STUFF
