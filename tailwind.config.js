@@ -23,6 +23,7 @@ module.exports = {
         cctvbg: "url('/assets/img/cctvinstbg.png')",
         mapbg: "url('/assets/img/mapbg.png')",
         herobg: "url('/assets/img/herobg.png')",
+        maintenancebg: "url('/assets/img/maintenance.png')",
       },
     },
   },
