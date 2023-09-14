@@ -8,7 +8,6 @@
       href="/assets/img/favicon.ico"
       type="image/x-icon"
     />
-    
 
     <!-- Primary Meta Tags -->
     <title>Pecotech Power Services</title>
@@ -48,6 +47,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/vendor/all.min.css" />
+    <link rel="stylesheet" href="./assets/vendor/splide.min.css" />
   </head>
   <body class="font-[Montserrat]">
     <!-- TOP BANNER -->
@@ -437,7 +437,7 @@
     <!-- #######3 END CTA ########33 -->
 
     <!-- ######### FEATURE SECTION ######## -->
-    <div class="bg-grey/60">
+    <div class="">
       <section class="pad">
         <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
           Our <span class="text-primary">Feature</span>
@@ -451,14 +451,14 @@
           <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-4 gap-3"
           >
-            <div class="rounded-xl bg-primary p-4 flex flex-col items-center">
+            <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
               <div class="max-w-[4rem]">
                 <img src="./assets/img/testing.webp" alt="accurate testing" />
               </div>
               <h2 class="font-semibold mt-4">Accurate Testing</h2>
             </div>
             <div
-              class="rounded-xl bg-primary p-4 flex flex-col items-center justify-between"
+              class="rounded-xl bg-grey/30 p-4 flex flex-col items-center justify-between"
             >
               <div class="max-w-[4rem]">
                 <img
@@ -469,13 +469,13 @@
               </div>
               <h2 class="font-semibold mt-4">Professional Staff</h2>
             </div>
-            <div class="rounded-xl bg-primary p-4 flex flex-col items-center">
+            <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
               <div class="max-w-[4rem]">
                 <img src="./assets/img/emergency.webp" alt="accurate testing" />
               </div>
               <h2 class="font-semibold mt-4">24/7 Emergency</h2>
             </div>
-            <div class="rounded-xl bg-primary p-4 flex flex-col items-center">
+            <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
               <div class="max-w-[4rem]">
                 <img src="./assets/img/atesting.webp" alt="accurate testing" />
               </div>
@@ -494,7 +494,7 @@
           Visualize Our <span class="text-primary">Work</span>
         </h1>
 
-        <section class="flex flex-wrap md:-m-2 -m-1">
+        <!-- <section class="flex flex-wrap md:-m-2 -m-1">
           <div class="flex flex-wrap lg:w-1/2">
             <div class="md:p-2 p-1 md:w-1/2">
               <img
@@ -541,6 +541,62 @@
               />
             </div>
           </div>
+        </section> -->
+        <section
+          id="work-carousel"
+          class="splide"
+          aria-labelledby="Work Images"
+        >
+          <div class="splide__track">
+            <ul class="splide__list gap-6">
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="/assets/img/cctv.webp"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="/assets/img/elec.webp"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="/assets/img/auto1.webp"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="/assets/img/auto2.webp"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="/assets/img/solarinst.webp"
+                  alt="work images"
+                />
+              </li>
+            
+            </ul>
+          </div>
         </section>
       </div>
     </section>
@@ -552,106 +608,90 @@
       <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
         Meet Our <span class="text-primary">Amazing Team</span>
       </h1>
-      <div class="twrapper mx-auto">
-        <ul class="carousel">
-          <li class="mx-auto relative rounded-lg overflow-hidden card">
-            <img
-              src="./assets/img/team1.webp"
-              alt="team member"
-              draggable="false"
-            />
-            <div
-              class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+      <section id="card-carousel" class="splide" aria-labelledby="Team Images">
+        <div class="splide__track">
+          <ul class="splide__list gap-6">
+            <li
+              class="splide__slide relative rounded-lg max-w-[280px] overflow-hidden card"
             >
-              <h2>Chris Hugghs</h2>
-              <h3 class="text-primary">CEO</h3>
-              <span class="flex gap-3">
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-facebook"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-instagram"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-twitter"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-linkedin"></i
-                ></a>
-              </span>
-            </div>
-          </li>
-          <li class="mx-auto relative rounded-lg overflow-hidden card">
-            <img
-              src="./assets/img/team1.webp"
-              alt="team member"
-              draggable="false"
-            />
-            <div
-              class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              <img
+                src="./assets/img/team1.webp"
+                alt="team member"
+                draggable="false"
+              />
+              <div
+                class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              >
+                <h2>Chris Hugghs</h2>
+                <h3 class="text-primary">CEO</h3>
+                <span class="flex gap-3">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-facebook"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-instagram"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-twitter"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
+                </span>
+              </div>
+            </li>
+            <li
+              class="splide__slide relative rounded-lg max-w-[280px] overflow-hidden card"
             >
-              <h2>Chris Hugghs</h2>
-              <h3 class="text-primary">CEO</h3>
-              <span class="flex gap-3">
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-facebook"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-instagram"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-twitter"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-linkedin"></i
-                ></a>
-              </span>
-            </div>
-          </li>
-          <li class="mx-auto relative rounded-lg overflow-hidden card">
-            <img
-              src="./assets/img/team1.webp"
-              alt="team member"
-              draggable="false"
-            />
-            <div
-              class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              <img
+                src="./assets/img/team1.webp"
+                alt="team member"
+                draggable="false"
+              />
+              <div
+                class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              >
+                <h2>James Pierce</h2>
+                <h3 class="text-primary">Lead Electrical Engineer</h3>
+                <span class="flex gap-3">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-facebook"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-instagram"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-twitter"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
+                </span>
+              </div>
+            </li>
+            <li
+              class="splide__slide relative rounded-lg max-w-[280px] overflow-hidden card"
             >
-              <h2>Chris Hugghs</h2>
-              <h3 class="text-primary">CEO</h3>
-              <span class="flex gap-3">
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-facebook"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-instagram"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-twitter"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-linkedin"></i
-                ></a>
-              </span>
-            </div>
-          </li>
-          <li class="mx-auto relative rounded-lg overflow-hidden card">
-            <img
-              src="./assets/img/team1.webp"
-              alt="team member"
-              draggable="false"
-            />
-            <div
-              class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
-            >
-              <h2>Chris Hugghs</h2>
-              <h3 class="text-primary">CEO</h3>
-              <span class="flex gap-3">
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-facebook"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-instagram"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-twitter"></i></a
-                ><a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa-brands fa-linkedin"></i
-                ></a>
-              </span>
-            </div>
-          </li>
-        </ul>
-      </div>
+              <img
+                src="./assets/img/team1.webp"
+                alt="team member"
+                draggable="false"
+              />
+              <div
+                class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              >
+                <h2>Matthew Hugghs</h2>
+                <h3 class="text-primary">Manager</h3>
+                <span class="flex gap-3">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-facebook"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-instagram"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-twitter"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
 
     <!-- ########### END OF TEAM ################# -->
@@ -797,7 +837,7 @@
                 <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
               </div>
               <div
-                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-primary text-white relative z-10 title-font font-medium text-sm"
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
               >
                 1
               </div>
@@ -805,7 +845,7 @@
                 class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
               >
                 <div
-                  class="flex-shrink-0 w-24 h-24 bg-primary/60 text-primary rounded-full inline-flex items-center justify-center"
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
                 >
                   <img src="/assets/img/bso.webp" alt="book service online" />
                 </div>
@@ -827,7 +867,7 @@
                 <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
               </div>
               <div
-                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-primary text-white relative z-10 title-font font-medium text-sm"
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
               >
                 2
               </div>
@@ -835,7 +875,7 @@
                 class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
               >
                 <div
-                  class="flex-shrink-0 w-24 h-24 bg-primary/60 text-primary rounded-full inline-flex items-center justify-center"
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
                 >
                   <img src="/assets/img/cr.webp" alt="confirm request" />
                 </div>
@@ -857,7 +897,7 @@
                 <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
               </div>
               <div
-                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-primary text-white relative z-10 title-font font-medium text-sm"
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
               >
                 3
               </div>
@@ -865,7 +905,7 @@
                 class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
               >
                 <div
-                  class="flex-shrink-0 w-24 h-24 bg-primary/60 text-primary rounded-full inline-flex items-center justify-center"
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
                 >
                   <img src="/assets/img/hu.webp" alt="hire us" />
                 </div>
@@ -887,7 +927,7 @@
                 <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
               </div>
               <div
-                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-primary text-white relative z-10 title-font font-medium text-sm"
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
               >
                 4
               </div>
@@ -895,7 +935,7 @@
                 class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
               >
                 <div
-                  class="flex-shrink-0 w-24 h-24 bg-primary/60 text-primary rounded-full inline-flex items-center justify-center"
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
                 >
                   <img src="/assets/img/cyw.webp" alt="complete your works" />
                 </div>
@@ -1432,5 +1472,5 @@
   <script src="./assets/vendor/all.min.js"></script>
   <script src="./assets/scripts/app.js"></script>
   <script src="/assets/scripts/testimonial.js"></script>
-  <script src="/assets/scripts/team.js"></script>
+  <script src="/assets/vendor/splide.min.js"></script>
 </html>
