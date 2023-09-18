@@ -178,20 +178,28 @@
             <h1 class="font-bold text-2xl">Account Login</h1>
             <p class="my-2">Login to access your pecotech account</p>
           </div>
-          <form class="mt-6" action="">
+          <form id="loginForm" class="mt-6" action="">
             <input
               class="w-full border-b-2 p-3 outline-none"
               type="email"
               placeholder="Email"
+              required
+              id="emailInput"
             />
             <input
               class="w-full my-7 border-b-2 p-3 outline-none"
               type="password"
-              name=""
-              id=""
+              name="password"
+              id="passwordInput"
               placeholder="password"
+              required
             />
-            <button class="w-full">Login</button>
+            <button
+              type="submit"
+              class="w-full bg-primary flex items-center gap-3 justify-center"
+            >
+              Login <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </form>
           <div class="text-center my-4">
             <p>
@@ -204,6 +212,41 @@
       </div>
     </section>
     <!-- ############## END LOGIN FORM ############## -->
+
+    <!-- ############# SUCCESS & ERROR MODALS ############## -->
+    <!-- Error Modal -->
+    <div
+      id="errorModal"
+      class="modal hidden fixed inset-0 overflow-y-auto"
+    ></div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal hidden fixed inset-0 overflow-y-auto">
+      <div
+        class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+      >
+        <div class="fixed inset-0 transition-opacity">
+          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span
+        >&#8203;
+        <div
+          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full py-5"
+        >
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="flex flex-col items-center">
+              <img class="w-16" src="/assets/img/check.gif" alt="success" />
+              <div class="text-center mt-4">
+                <h2 class="font-semibold text-2xl mb-1">Access Granted</h2>
+                <p>Redirecting to dashboard ...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ############# END SUCCESS & ERROR MODALS ############## -->
 
     <section></section>
     <section></section>

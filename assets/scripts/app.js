@@ -102,3 +102,133 @@ document.addEventListener("DOMContentLoaded", function () {
   }).mount();
 });
 // END WORKS SLIDER
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("loginForm");
+  const emailInput = document.getElementById("emailInput"); // Corrected ID
+  const passwordInput = document.getElementById("passwordInput"); // Corrected ID
+  const loginButton = document.getElementById("loginButton");
+  const errorModal = document.getElementById("errorModal");
+  const successModal = document.getElementById("successModal");
+
+  let loginAttempts = 0;
+
+  const validCredentials = {
+    email: "test@tori.com",
+    password: "tori",
+  };
+
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const enteredEmail = emailInput.value;
+    const enteredPassword = passwordInput.value;
+
+    if (
+      enteredEmail === validCredentials.email &&
+      enteredPassword === validCredentials.password
+    ) {
+      // Successful login
+      successModal.classList.remove("hidden");
+      setTimeout(function () {
+        successModal.classList.add("hidden");
+        window.location.href = "dashboard.html"; // Redirect after 900ms
+      }, 2000);
+    } else {
+      // Failed login
+      loginAttempts++;
+
+      if (loginAttempts >= 2) {
+        // Display reset password link
+        errorModal.innerHTML = `
+         <div
+      class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+    >
+      <div class="fixed inset-0 transition-opacity">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span
+      >&#8203;
+      <div
+        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full py-5"
+      >
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="flex flex-col items-center">
+            <img class="w-16" src="/assets/img/failed.gif" alt="success" />
+            <div class="text-center mt-4">
+              <h2 class="font-semibold text-2xl mb-1">Access Denied</h2>
+              <p>
+                Incorrect Login Credentials. you can request for a password
+                reset link by clicking on the reset button below.
+              </p>
+            </div>
+            <div class="flex justify-center mt-5">
+              <button>Reset</button>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+          <button id="closeModalButton" class="bg-grey text-white">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+        `;
+      } else {
+        // Display standard error message
+        errorModal.innerHTML = `
+        <div
+      class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+    >
+      <div class="fixed inset-0 transition-opacity">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span
+      >&#8203;
+      <div
+        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full py-5"
+      >
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="flex flex-col items-center">
+            <img class="w-16" src="/assets/img/failed.gif" alt="success" />
+            <div class="text-center mt-4">
+              <h2 class="font-semibold text-2xl mb-1">Access Denied</h2>
+              <p>Incorrect Login Credentials</p>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+          <button id="closeModalButton" class="bg-grey text-white">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+        `;
+      }
+      const closeModalButton = document.getElementById("closeModalButton");
+      closeModalButton.addEventListener("click", function () {
+        errorModal.classList.add("hidden");
+      });
+
+      errorModal.classList.remove("hidden");
+      setTimeout(function () {
+        errorModal.classList.add("hidden");
+      }, 6000);
+    }
+  });
+
+  const modalOverlay = document.querySelector(".modal .transition-opacity");
+  const modal = document.querySelector("modal");
+  modalOverlay.addEventListener("click", function (e) {
+    if (e.target === modalOverlay) {
+      errorModal.classList.add("hidden");
+      successModal.classList.add("hidden");
+    }
+  });
+});
+
+// END LOGIN ERROR AND SUCCESS MODALS
