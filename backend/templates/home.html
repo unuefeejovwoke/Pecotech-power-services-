@@ -1,0 +1,1477 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="{% static '/assets/img/favicon.ico' %}"
+      type="image/x-icon"
+    />
+
+    <!-- Primary Meta Tags -->
+    <title>Pecotech Power Services</title>
+    <meta name="title" content="Pecotech Power Services" />
+    <meta
+      name="description"
+      content="Discover top-tier electrical services with Pecotech. Our experts specialize in residential and commercial solutions, ensuring safety, efficiency, and reliability. Contact us today for all your electrical needs."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pecotech.netlify.app/" />
+    <meta property="og:title" content="Pecotech Power Services" />
+    <meta
+      property="og:description"
+      content="Discover top-tier electrical services with Pecotech. Our experts specialize in residential and commercial solutions, ensuring safety, efficiency, and reliability. Contact us today for all your electrical needs."
+    />
+    <meta property="og:image" content="./assets/img/flogo.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pecotech.netlify.app/" />
+    <meta property="twitter:title" content="Pecotech Power Services" />
+    <meta
+      property="twitter:description"
+      content="Discover top-tier electrical services with Pecotech. Our experts specialize in residential and commercial solutions, ensuring safety, efficiency, and reliability. Contact us today for all your electrical needs."
+    />
+    <meta property="twitter:image" content="./assets/img/flogo.webp" />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static './assets/vendor/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static './assets/vendor/splide.min.css' %}" />
+  </head>
+  <body class="font-[Montserrat]">
+    <!-- TOP BANNER -->
+    <div class="bg-primary py-2 text-[12px] z-30">
+      <div
+        class="pad flex justify-between font-semibold flex-col items-center text-center md:flex-row z-40"
+      >
+        <div>Reliable Solutions To Your Home, Available 24/7</div>
+        <div class="flex items-center flex-col lg:flex-row">
+          <span>
+            <i class="fa-solid fa-phone-volume mr-2"></i>Emergency Service:
+            (234) 0807 387 6832
+          </span>
+          <span class="flex gap-3 items-center lg:ml-3">
+            <i class="fa-solid fa-grip-lines-vertical"></i>
+            <a href="mailto:">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ###########  NAVBAR  ################# -->
+    <nav class="bg-white sticky top-0 py-3 z-30">
+      <div class="pad flex justify-between">
+        <a href="/index.html"
+          ><img class="w-36 md:w-auto" src="{% static './assets/img/logo.webp' %}" alt="logo"
+        /></a>
+        <div class="flex gap-4 items-center relative">
+          <ul class="lg:flex gap-5 font-semibold hidden">
+            <a href="/index.html">
+              <li class="text-primary">Home</li>
+            </a>
+            <a href="/about.html">
+              <li class="hover:text-primary">About</li>
+            </a>
+            <a href="./services.html">
+              <li class="hover:text-primary">Services</li>
+            </a>
+            <a href="/portfolio.html">
+              <li class="hover:text-primary">Portfolio</li>
+            </a>
+            <a href="/blog.html">
+              <li class="hover:text-primary">Blog</li>
+            </a>
+            <a href="/contact.html">
+              <li class="hover:text-primary">Contact Us</li>
+            </a>
+            <a href="/login.html">
+              <i class="fa-solid fa-user hover:text-primary"></i>
+            </a>
+          </ul>
+
+          <button class="hidden md:flex ml-2 serviceFormBtn">
+            GET A QUOTE <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+          <!-- hambuger -->
+          <span class="lg:hidden ml-3" id="ham">
+            <i class="fa-solid fa-bars cursor-pointer"></i>
+          </span>
+          <!-- mobile menu -->
+          <div
+            class="bg-white -z-10 p-10 top-0 right-0 hidden w-[20rem] rounded-lg absolute pt-24 flex justify-center lg:hidden"
+            id="menu"
+          >
+            <ul class="gap-5 flex flex-col font-semibold">
+              <a href="/index.html">
+                <li class="text-primary">Home</li>
+              </a>
+              <a href="/about.html">
+                <li class="hover:text-primary">About</li>
+              </a>
+              <a href="./services.html">
+                <li class="hover:text-primary">Services</li>
+              </a>
+              <a href="/portfolio.html">
+                <li class="hover:text-primary">Portfolio</li>
+              </a>
+              <a href="/blog.html">
+                <li class="hover:text-primary">Blog</li>
+              </a>
+              <a href="/contact.html">
+                <li class="hover:text-primary">Contact Us</li>
+              </a>
+              <a href="/login.html">
+                <i class="fa-solid fa-user hover:text-primary"></i>
+              </a>
+              <button class="serviceFormBtn">
+                GET A QUOTE <i class="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--############## END OF NAV ############## -->
+
+    <!-- ############ BEGIN HERO ############### -->
+    <div class="bg-herobg">
+      <section
+        class="text-white backdrop-brightness-50 h-full py-[58px] lg:py-[85px]"
+      >
+        <div class="pad max-w-[900px] md:mx-0">
+          <h2 class="font-semibold md:text-2xl">
+            <span class="text-primary">PECOTECH</span> Power Services
+          </h2>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl my-3 font-extrabold">
+            Professional <span class="text-primary">Electrical </span>Services
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+            voluptate dolorum animi. Magni laudantium assumenda ipsum. Expedita
+            praesentium cupiditate maiores voluptatem consequuntur atque quasi
+            nulla!
+          </p>
+          <button class="flex items-center gap-2 mt-4 serviceFormBtn">
+            Request Services <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+    <!-- ############## END HERO ########### -->
+
+    <section class="pad text-center font-extrabold">
+      <h1 class="text-xl md:text-3xl lg:text-5xl xl:text-6xl">
+        Rest easy knowing your project is in the
+        <span class="text-grey border-b-2 border-b-primary">best hands.</span>
+      </h1>
+    </section>
+
+    <!-- ####### ABOUT SECTION ####### -->
+    <div class="pad">
+      <h1 class="font-bold text-xl lg:text-3xl underline">
+        About our <span class="text-primary">company</span>
+      </h1>
+      <div class="flex flex-col mt-5 gap-4 lg:gap-7 md:flex-row">
+        <div class="md:min-w-[40vw] lg:min-w-[35vw]">
+          <img src="{% static './assets/img/ab1.webp' %}" alt="about" />
+        </div>
+        <div class="flex items-center">
+          <div>
+            <h1 class="font-semibold text-xl md:text-2xl lg:text-5xl">
+              We are committed to provide quality service
+            </h1>
+            <p class="my-4 lg:text-2xl">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+              minus facere aut neque tenetur aliquid assumenda ratione officia
+              et est eaque, blanditiis, nesciunt similique! Autem excepturi
+              nostrum neque a ducimus eum nemo, cum modi pariatur. <br />
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum,
+              in veniam quod sunt possimus fugit.
+            </p>
+            <a href="/services.html">
+              <button class="flex items-center gap-3">
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ####### END ABOUT SECTION ####### -->
+
+    <!-- ####### SERVICE SECTION ######### -->
+    <section class="pad">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="text-center flex flex-col items-center">
+          <img
+            class="max-w-[6rem]"
+            src="{% static './assets/img/reliable.webp' %}"
+            alt="reliable"
+          />
+          <h2 class="text-primary font-bold font-xl mt-4">Reliable</h2>
+          <p>
+            With Pecotech, you know you will get exactly what we promised. We
+            always deliver on our promises!
+          </p>
+        </div>
+        <div class="text-center flex flex-col items-center my-auto">
+          <img
+            class="max-w-[7rem]"
+            src="{% static './assets/img/professional.webp' %}"
+            alt="professional"
+          />
+          <h2 class="text-primary font-bold font-xl mt-4">Professional</h2>
+          <p>
+            With Pecotech, you know you will get exactly what we promised. We
+            always deliver on our promises!
+          </p>
+        </div>
+        <div class="text-center flex flex-col items-center my-auto">
+          <img
+            class="max-w-[4.6rem]"
+            src="{% static './assets/img/responsive.webp' %}"
+            alt="responsive"
+          />
+          <h2 class="text-primary font-bold font-xl mt-4">Responsive</h2>
+          <p>
+            With Pecotech, you know you will get exactly what we promised. We
+            always deliver on our promises!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="pad">
+      <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+        Explore Our <span class="text-primary">Services</span>
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-electbg rounded-lg overflow-hidden">
+          <div class="backdrop-brightness-50 text-white p-5">
+            <span class="flex gap-5 items-center">
+              <div
+                class="bg-primary/50 w-10 h-10 flex items-center justify-center rounded-full"
+              >
+                1
+              </div>
+              <h1 class="font-semibold text-lg">Installation Services</h1>
+            </span>
+            <p class="my-5 lg:ml-[59px]">
+              With pecotech, you know you will get exactly what we promised. We
+              always deliver on our promises! We always deliver on our promises!
+            </p>
+            <a href="/services.html">
+              <p
+                class="text-primary cursor-pointer lg:ml-[59px] flex gap-3 items-center"
+              >
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="bg-electbg rounded-lg overflow-hidden">
+          <div class="backdrop-brightness-50 text-white p-5">
+            <span class="flex gap-5 items-center">
+              <div
+                class="bg-primary/50 w-10 h-10 flex items-center justify-center rounded-full"
+              >
+                2
+              </div>
+              <h1 class="font-semibold text-lg">Installation Services</h1>
+            </span>
+            <p class="my-5 lg:ml-[59px]">
+              With pecotech, you know you will get exactly what we promised. We
+              always deliver on our promises! We always deliver on our promises!
+            </p>
+            <a href="/services.html">
+              <p
+                class="text-primary cursor-pointer lg:ml-[59px] flex gap-3 items-center"
+              >
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="bg-electbg rounded-lg overflow-hidden">
+          <div class="backdrop-brightness-50 text-white p-5">
+            <span class="flex gap-5 items-center">
+              <div
+                class="bg-primary/50 w-10 h-10 flex items-center justify-center rounded-full"
+              >
+                3
+              </div>
+              <h1 class="font-semibold text-lg">Installation Services</h1>
+            </span>
+            <p class="my-5 lg:ml-[59px]">
+              With pecotech, you know you will get exactly what we promised. We
+              always deliver on our promises! We always deliver on our promises!
+            </p>
+            <a href="/services.html">
+              <p
+                class="text-primary cursor-pointer lg:ml-[59px] flex gap-3 items-center"
+              >
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="bg-electbg rounded-lg overflow-hidden">
+          <div class="backdrop-brightness-50 text-white p-5">
+            <span class="flex gap-5 items-center">
+              <div
+                class="bg-primary/50 w-10 h-10 flex items-center justify-center rounded-full"
+              >
+                4
+              </div>
+              <h1 class="font-semibold text-lg">Installation Services</h1>
+            </span>
+            <p class="my-5 lg:ml-[59px]">
+              With pecotech, you know you will get exactly what we promised. We
+              always deliver on our promises! We always deliver on our promises!
+            </p>
+            <a href="/services.html">
+              <p
+                class="text-primary cursor-pointer lg:ml-[59px] flex gap-3 items-center"
+              >
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="bg-electbg rounded-lg overflow-hidden">
+          <div class="backdrop-brightness-50 text-white p-5">
+            <span class="flex gap-5 items-center">
+              <div
+                class="bg-primary/50 w-10 h-10 flex items-center justify-center rounded-full"
+              >
+                5
+              </div>
+              <h1 class="font-semibold text-lg">Installation Services</h1>
+            </span>
+            <p class="my-5 lg:ml-[59px]">
+              With pecotech, you know you will get exactly what we promised. We
+              always deliver on our promises! We always deliver on our promises!
+            </p>
+            <a href="/services.html">
+              <p
+                class="text-primary cursor-pointer lg:ml-[59px] flex gap-3 items-center"
+              >
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="bg-electbg rounded-lg overflow-hidden">
+          <div class="backdrop-brightness-50 text-white p-5">
+            <span class="flex gap-5 items-center">
+              <div
+                class="bg-primary/50 w-10 h-10 flex items-center justify-center rounded-full"
+              >
+                6
+              </div>
+              <h1 class="font-semibold text-lg">Installation Services</h1>
+            </span>
+            <p class="my-5 lg:ml-[59px]">
+              With pecotech, you know you will get exactly what we promised. We
+              always deliver on our promises! We always deliver on our promises!
+            </p>
+            <a href="/services.html">
+              <p
+                class="text-primary cursor-pointer lg:ml-[59px] flex gap-3 items-center"
+              >
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ####### END SERVICE SECTION ######### -->
+
+    <!-- #######3 CTA ########33 -->
+    <section class="pad">
+      <div class="rounded-xl bg-maintenancebg overflow-hidden">
+        <div
+          class="backdrop-brightness-50 p-8 md:p-12 text-white flex flex-col gap-4 text-center lg:flex-row lg:text-left lg:justify-around mx-auto lg:px-20"
+        >
+          <div>
+            <h1 class="text-primary font-bold text-xl md:text-2xl lg:text-3xl">
+              Always ready to give you service
+            </h1>
+            <p class="mt-3 lg:text-xl">
+              Ready to transform your project? <br />
+              Contact us today for a free consultation and lets get started.
+            </p>
+          </div>
+          <button class="w-fit mx-auto h-fit my-auto serviceFormBtn">
+            GET AN ESTIMATE <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- #######3 END CTA ########33 -->
+
+    <!-- ######### FEATURE SECTION ######## -->
+    <div class="">
+      <section class="pad">
+        <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+          Our <span class="text-primary">Feature</span>
+        </h1>
+        <div class="text-center">
+          <p class="font-semibold">
+            Pecotech has everything you need in a master electrician. Whether it
+            be your home, office, business or an area outdoor. Contact us today
+            to get your project started.
+          </p>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-4 gap-3"
+          >
+            <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
+              <div class="max-w-[4rem]">
+                <img src="{% static './assets/img/testing.webp' %}" alt="accurate testing" />
+              </div>
+              <h2 class="font-semibold mt-4">Accurate Testing</h2>
+            </div>
+            <div
+              class="rounded-xl bg-grey/30 p-4 flex flex-col items-center justify-between"
+            >
+              <div class="max-w-[4rem]">
+                <img
+                  class="w-full my-auto"
+                  src="{% static './assets/img/pstaff.webp' %}"
+                  alt="accurate testing"
+                />
+              </div>
+              <h2 class="font-semibold mt-4">Professional Staff</h2>
+            </div>
+            <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
+              <div class="max-w-[4rem]">
+                <img src="{% static './assets/img/emergency.webp' %}" alt="accurate testing" />
+              </div>
+              <h2 class="font-semibold mt-4">24/7 Emergency</h2>
+            </div>
+            <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
+              <div class="max-w-[4rem]">
+                <img src="{% static './assets/img/atesting.webp' %}" alt="accurate testing" />
+              </div>
+              <h2 class="font-semibold mt-4">Accurate Testing</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- ######### END FEATURE SECTION ######## -->
+
+    <!-- ####### WORKS SECTION ############# -->
+    <section>
+      <div class="pad">
+        <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+          Visualize Our <span class="text-primary">Work</span>
+        </h1>
+
+        <!-- <section class="flex flex-wrap md:-m-2 -m-1">
+          <div class="flex flex-wrap lg:w-1/2">
+            <div class="md:p-2 p-1 md:w-1/2">
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block"
+                src="{% static '/assets/img/work1.webp' %}"
+              />
+            </div>
+            <div class="md:p-2 p-1 md:w-1/2">
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block"
+                src="{% static '/assets/img/work2.webp' %}"
+              />
+            </div>
+            <div class="md:p-2 p-1 w-full">
+              <img
+                alt="gallery"
+                class="w-full h-full object-cover object-center block"
+                src="{% static '/assets/img/work3.webp' %}"
+              />
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/2">
+            <div class="md:p-2 p-1 w-full">
+              <img
+                alt="gallery"
+                class="w-full h-full object-cover object-center block"
+                src="{% static '/assets/img/work3.webp' %}"
+              />
+            </div>
+            <div class="md:p-2 p-1 md:w-1/2">
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block"
+                src="{% static '/assets/img/work5.webp' %}"
+              />
+            </div>
+            <div class="md:p-2 p-1 md:w-1/2">
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block"
+                src="{% static '/assets/img/work6.webp' %}"
+              />
+            </div>
+          </div>
+        </section> -->
+        <section
+          id="work-carousel"
+          class="splide"
+          aria-labelledby="Work Images"
+        >
+          <div class="splide__track">
+            <ul class="splide__list gap-6">
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="{% static '/assets/img/cctv.webp' %}"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="{% static '/assets/img/elec.webp' %}"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="{% static '/assets/img/auto1.webp' %}"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="{% static '/assets/img/auto2.webp' %}"
+                  alt="work images"
+                />
+              </li>
+              <li
+                class="splide__slide rounded-lg w-[280px] overflow-hidden card h-[280px] lg:h-[380px]"
+              >
+                <img
+                  class="w-full "
+                  src="{% static '/assets/img/solarinst.webp' %}"
+                  alt="work images"
+                />
+              </li>
+            
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+    <!-- ####### END WORKS SECTION ############# -->
+
+    <!-- ########### TEAM ################# -->
+
+    <div class="pad">
+      <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+        Meet Our <span class="text-primary">Amazing Team</span>
+      </h1>
+      <section id="card-carousel" class="splide" aria-labelledby="Team Images">
+        <div class="splide__track">
+          <ul class="splide__list gap-6">
+            <li
+              class="splide__slide relative rounded-lg max-w-[280px] overflow-hidden card"
+            >
+              <img
+                src="{% static './assets/img/team1.webp' %}"
+                alt="team member"
+                draggable="false"
+              />
+              <div
+                class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              >
+                <h2>Chris Hugghs</h2>
+                <h3 class="text-primary">CEO</h3>
+                <span class="flex gap-3">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-facebook"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-instagram"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-twitter"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
+                </span>
+              </div>
+            </li>
+            <li
+              class="splide__slide relative rounded-lg max-w-[280px] overflow-hidden card"
+            >
+              <img
+                src="{% static './assets/img/team1.webp' %}"
+                alt="team member"
+                draggable="false"
+              />
+              <div
+                class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              >
+                <h2>James Pierce</h2>
+                <h3 class="text-primary">Lead Electrical Engineer</h3>
+                <span class="flex gap-3">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-facebook"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-instagram"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-twitter"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
+                </span>
+              </div>
+            </li>
+            <li
+              class="splide__slide relative rounded-lg max-w-[280px] overflow-hidden card"
+            >
+              <img
+                src="{% static './assets/img/team1.webp' %}"
+                alt="team member"
+                draggable="false"
+              />
+              <div
+                class="bg-grey/50 absolute w-[90%] font-semibold bottom-4 flex flex-col items-center p-3 backdrop-blur-sm"
+              >
+                <h2>Matthew Hugghs</h2>
+                <h3 class="text-primary">Manager</h3>
+                <span class="flex gap-3">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-facebook"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-instagram"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-twitter"></i></a
+                  ><a href="#" target="_blank" rel="noopener noreferrer"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- ########### END OF TEAM ################# -->
+
+    <!-- ######### FAQ SECTION ######### -->
+    <section>
+      <div class="pad">
+        <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+          Discover FAQ from our <span class="text-primary">support</span>
+        </h1>
+        <div class="flex flex-col lg:flex-row gap-4">
+          <div class="lg:w-2/3">
+            <div class="space-y-2">
+              <div class="faq rounded-lg overflow-hidden shadow-md">
+                <span
+                  class="flex items-center justify-between w-full p-4 focus:outline-none cursor-pointer bg-grey"
+                >
+                  <h1 class="text-lg font-semibold">
+                    How long does a service take?
+                  </h1>
+                  <div class="transition-transform transform svg">
+                    <i class="fa-solid fa-caret-down"> </i>
+                  </div>
+                </span>
+                <div class="p-4 hidden bg-grey border-t-2 border">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Fuga consequatur deleniti modi! Molestiae possimus odit
+                    pariatur dolor quibusdam enim rem?
+                  </p>
+                </div>
+              </div>
+              <div class="faq rounded-lg overflow-hidden shadow-md">
+                <span
+                  class="flex items-center justify-between w-full p-4 focus:outline-none cursor-pointer bg-grey"
+                >
+                  <h1 class="text-lg font-semibold">
+                    What payment gateway do you support?
+                  </h1>
+                  <div class="transition-transform transform svg">
+                    <i class="fa-solid fa-caret-down"> </i>
+                  </div>
+                </span>
+                <div class="p-4 hidden bg-grey border-t-2 border">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Fuga consequatur deleniti modi! Molestiae possimus odit
+                    pariatur dolor quibusdam enim rem?
+                  </p>
+                </div>
+              </div>
+              <div class="faq rounded-lg overflow-hidden shadow-md">
+                <span
+                  class="flex items-center justify-between w-full p-4 focus:outline-none cursor-pointer bg-grey"
+                >
+                  <h1 class="text-lg font-semibold">
+                    How can I cancel a request?
+                  </h1>
+                  <div class="transition-transform transform svg">
+                    <i class="fa-solid fa-caret-down"> </i>
+                  </div>
+                </span>
+                <div class="p-4 hidden bg-grey border-t-2 border">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Fuga consequatur deleniti modi! Molestiae possimus odit
+                    pariatur dolor quibusdam enim rem?
+                  </p>
+                </div>
+              </div>
+              <div class="faq rounded-lg overflow-hidden shadow-md">
+                <span
+                  class="flex items-center justify-between w-full p-4 focus:outline-none cursor-pointer bg-grey"
+                >
+                  <h1 class="text-lg font-semibold">
+                    How can I become a member?
+                  </h1>
+                  <div class="transition-transform transform svg">
+                    <i class="fa-solid fa-caret-down"> </i>
+                  </div>
+                </span>
+                <div class="p-4 hidden bg-grey border-t-2 border">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Fuga consequatur deleniti modi! Molestiae possimus odit
+                    pariatur dolor quibusdam enim rem?
+                  </p>
+                </div>
+              </div>
+
+              <!-- Add more questions and answers as needed -->
+            </div>
+          </div>
+          <div class="lg:w-1/3 mx-auto">
+            <img src="{% static '/assets/img/faq.webp' %}" alt="faq image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ######### END FAQ SECTION ######### -->
+
+    <!-- ###### OUR CLIENT SATISFACTION ###### -->
+    <div class="pad">
+      <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+        Our Clients <span class="text-primary">Satisfaction</span>
+      </h1>
+      <section class="relative flex justify-center">
+        <div class="wrapper relative">
+          <div class="testimonial-container" id="testimonial-container"></div>
+          <button
+            class="flex items-center justify-center text-primary"
+            id="prev"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button
+            class="flex items-center justify-center text-primary"
+            id="next"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+    <!-- ###### END OUR CLIENT SATISFACTION ###### -->
+
+    <!-- ######## WORK SATISFACTION #######3 -->
+    <section>
+      <div class="pad">
+        <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+          Our Work <span class="text-primary">Satisfaction</span>
+        </h1>
+
+        <div class="text-gray-600 body-font">
+          <div class="mx-auto flex flex-wrap">
+            <div
+              class="flex relative pt-10 pb-10 sm:items-center md:w-2/3 mx-auto"
+            >
+              <div
+                class="h-full w-6 absolute inset-0 flex items-center justify-center"
+              >
+                <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
+              </div>
+              <div
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
+              >
+                1
+              </div>
+              <div
+                class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
+              >
+                <div
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
+                >
+                  <img src="{% static '/assets/img/bso.webp' %}" alt="book service online" />
+                </div>
+                <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                  <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
+                    Book Service Online
+                  </h2>
+                  <p class="leading-relaxed">
+                    VHS cornhole pop-up, try-hard 8-bit iceland helvetica.
+                    Kinfolk bespoke try-hard cliche palo santo offal.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+              <div
+                class="h-full w-6 absolute inset-0 flex items-center justify-center"
+              >
+                <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
+              </div>
+              <div
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
+              >
+                2
+              </div>
+              <div
+                class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
+              >
+                <div
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
+                >
+                  <img src="{% static '/assets/img/cr.webp' %}" alt="confirm request" />
+                </div>
+                <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                  <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
+                    Confirm Request
+                  </h2>
+                  <p class="leading-relaxed">
+                    VHS cornhole pop-up, try-hard 8-bit iceland helvetica.
+                    Kinfolk bespoke try-hard cliche palo santo offal.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+              <div
+                class="h-full w-6 absolute inset-0 flex items-center justify-center"
+              >
+                <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
+              </div>
+              <div
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
+              >
+                3
+              </div>
+              <div
+                class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
+              >
+                <div
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
+                >
+                  <img src="{% static '/assets/img/hu.webp' %}" alt="hire us" />
+                </div>
+                <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                  <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
+                    Hire Us
+                  </h2>
+                  <p class="leading-relaxed">
+                    VHS cornhole pop-up, try-hard 8-bit iceland helvetica.
+                    Kinfolk bespoke try-hard cliche palo santo offal.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
+              <div
+                class="h-full w-6 absolute inset-0 flex items-center justify-center"
+              >
+                <div class="h-full w-1 bg-grey/70 pointer-events-none"></div>
+              </div>
+              <div
+                class="flex-shrink-0 h-6 w-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-grey text-white relative z-10 title-font font-medium text-sm"
+              >
+                4
+              </div>
+              <div
+                class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
+              >
+                <div
+                  class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
+                >
+                  <img src="{% static '/assets/img/cyw.webp' %}" alt="complete your works" />
+                </div>
+                <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                  <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
+                    Complete Your Works
+                  </h2>
+                  <p class="leading-relaxed">
+                    VHS cornhole pop-up, try-hard 8-bit iceland helvetica.
+                    Kinfolk bespoke try-hard cliche palo santo offal.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ######## END WORK SATISFACTION #######3 -->
+
+    <!-- ######## CONTACT SECTION ######### -->
+    <div class="pad">
+      <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+        Get A <span class="text-primary">Quote</span>
+      </h1>
+      <section class="flex flex-col md:flex-row gap-6">
+        <div class="md:w-1/2 lg:w-1/3">
+          <div
+            class="text-center md:text-left border-b-2 border-grey pb-4 mb-4"
+          >
+            <h1 class="font-bold text-2xl lg:text-3xl mb-4">
+              <span class="border-b-4 border-b-primary">Cont</span>act
+            </h1>
+            <p>
+              Please let us know if you have a question, want to leave a comment
+              or would like further information about pecotech.
+            </p>
+          </div>
+          <ul class="max-w-[270px]">
+            <li class="flex gap-4 items-center">
+              <i class="fa-solid fa-location-dot text-primary"> </i>
+              <p>Asaba, Lekki & Lagos</p>
+            </li>
+            <li class="flex gap-4 items-center my-1">
+              <i class="fa-solid fa-phone-volume text-primary"> </i>
+              <p>07034373417</p>
+            </li>
+            <li class="flex gap-4 items-center">
+              <i class="fa-solid fa-envelope text-primary"> </i>
+              <p>pecotech@gmail.com</p>
+            </li>
+            <li class="mt-2 flex items-cener justify-between">
+              <p>@pecotechng</p>
+              <span class="flex gap-3">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <form action="#" class="md:w-1/2 lg:w-2/3">
+          <span class="grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
+            <input
+              class="outline-primary p-3 bg-primary/40 rounded-lg my-1"
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              class="outline-primary p-3 bg-primary/40 rounded-lg my-1"
+              type="email"
+              placeholder="Email Address"
+            />
+          </span>
+          <span class="grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
+            <input
+              class="outline-primary p-3 bg-primary/40 rounded-lg my-1"
+              type="text"
+              placeholder="Subject"
+            />
+            <select
+              class="outline-primary p-3 bg-primary/40 rounded-lg my-1"
+              id="select"
+              class="bg-primary/40"
+            >
+              <option value="option1">Area of interest</option>
+              <option value="Home Automation">Home Automation</option>
+              <option value="Electrical Wiring">Electrical Wiring</option>
+              <option value="Solar Installation">Solar Installation</option>
+              <option value="CCTV Installation">CCTV Installation</option>
+              <option value="Door Lighting">Door Lighting</option>
+              <option value="Ceiling Fan Installation">
+                Ceiling Fan Installation
+              </option>
+            </select>
+          </span>
+          <textarea
+            class="outline-primary p-3 bg-primary/40 rounded-lg my-1 w-full"
+            placeholder="Your Messsage"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <button class="w-full flex items-center gap-4 justify-center">
+            Submit <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </section>
+    </div>
+    <!-- ######## END CONTACT SECTION ######### -->
+
+    <!-- ######## BLOG INSIGHT ########### -->
+    <div class="pad">
+      <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
+        Our Blog <span class="text-primary">Insights</span>
+      </h1>
+
+      <div class="text-grey body-font">
+        <div class="mx-auto">
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 md:w-1/2 lg:w-1/3">
+              <div
+                class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+              >
+                <img
+                  class="lg:h-48 md:h-36 w-full object-cover object-center"
+                  src="{% static '/assets/img/home.webp' %}"
+                  alt="blog"
+                />
+                <div class="p-6">
+                  <h2
+                    class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                  >
+                    CATEGORY
+                  </h2>
+                  <h1
+                    class="title-font text-lg font-semibold text-gray-900 mb-3"
+                  >
+                    Experiencing the future today with home automation
+                  </h1>
+                  <p class="leading-relaxed mb-3">
+                    Photo booth fam kinfolk cold-pressed sriracha leggings
+                    jianbing microdosing tousled waistcoat.
+                  </p>
+                  <div class="flex items-center flex-wrap justify-between">
+                    <a
+                      href="/blog-detail.html"
+                      class="text-primary gap-2 inline-flex items-center md:mb-2 lg:mb-0"
+                      >Learn More
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <span
+                      class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1"
+                    >
+                      02 Aug, 2023
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/2 lg:w-1/3">
+              <div
+                class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+              >
+                <img
+                  class="lg:h-48 md:h-36 w-full object-cover object-center"
+                  src="{% static '/assets/img/cctv.webp' %}"
+                  alt="blog"
+                />
+                <div class="p-6">
+                  <h2
+                    class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                  >
+                    CATEGORY
+                  </h2>
+                  <h1
+                    class="title-font text-lg font-semibold text-gray-900 mb-3"
+                  >
+                    8 Benefits of CCTV installation your home or business can't
+                    afford to miss out on
+                  </h1>
+                  <p class="leading-relaxed mb-3">
+                    Photo booth fam kinfolk cold-pressed sriracha leggings
+                    jianbing microdosing tousled waistcoat.
+                  </p>
+                  <div class="flex items-center flex-wrap justify-between">
+                    <a
+                      href="/blog-detail.html"
+                      class="text-primary gap-2 inline-flex items-center md:mb-2 lg:mb-0"
+                      >Learn More
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <span
+                      class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1"
+                    >
+                      24 Jul, 2023
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/2 lg:w-1/3">
+              <div
+                class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+              >
+                <img
+                  class="lg:h-48 md:h-36 w-full object-cover object-center"
+                  src="{% static '/assets/img/elec.webp' %}"
+                  alt="blog"
+                />
+                <div class="p-6">
+                  <h2
+                    class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                  >
+                    CATEGORY
+                  </h2>
+                  <h1
+                    class="title-font text-lg font-semibold text-gray-900 mb-3"
+                  >
+                    Electrical doings you need in your home
+                  </h1>
+                  <p class="leading-relaxed mb-3">
+                    Photo booth fam kinfolk cold-pressed sriracha leggings
+                    jianbing microdosing tousled waistcoat.
+                  </p>
+                  <div class="flex items-center flex-wrap justify-between">
+                    <a
+                      href="/blog-detail.html"
+                      class="text-primary gap-2 inline-flex items-center md:mb-2 lg:mb-0"
+                      >Learn More
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <span
+                      class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1"
+                    >
+                      16 Jul, 2023
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="/blog.html">
+            <button class="text-white mt-5 mx-auto">
+              Read more <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- ######## END BLOG INSIGHT ########### -->
+
+    <section></section>
+    <section></section>
+
+    <!-- ############## SERVICE request form  ############### -->
+    <div
+      id="serviceForm"
+      class="w-screen h-screen fixed flex hidden items-center justify-center top-0 backdrop-brightness-50 z-40 text-sm"
+    >
+      <div class="p-5 relative bg-white max-w-[420px] m-3 rounded-lg">
+        <span class="absolute cursor-pointer right-4 text-xl serviceFormBtn">
+          <i class="fa-solid fa-times"></i>
+        </span>
+        <div class="flex justify-center">
+          <img class="w-24" src="{% static './assets/img/flogo.webp' %}" alt="logo" />
+        </div>
+        <div
+          class="w-full bg-primary bg-opacity-30 rounded-lg mb-4 text-center p-3 text-xs"
+        >
+          <h1 class="font-bold text-lg">Service Request Form</h1>
+          <p>
+            Please fill out this form & a member of our team will be in touch
+            shortly.
+          </p>
+        </div>
+        <form action="">
+          <label for="name">Full Name</label>
+          <input
+            class="w-full border mt-1 mb-3 border-black rounded-lg outline-none p-2"
+            type="text"
+            placeholder="Full Name"
+          />
+          <label for="email">Email Address</label>
+          <input
+            class="w-full border mt-1 mb-3 border-black rounded-lg outline-none p-2"
+            type="email"
+            name="email"
+            id=""
+            placeholder="Email Address"
+          />
+          <label for="phone">Phone Number</label>
+          <input
+            class="w-full border mt-1 mb-3 border-black rounded-lg outline-none p-2"
+            type="tel"
+            name="phone"
+            id=""
+            placeholder="Phone Number"
+          />
+          <span class="flex justify-between relative mb-2">
+            <p class="font-semibold">Send Quotation</p>
+            <span id="srf-info-btn">
+              <i class="fa-regular fa-circle-question text-primary"></i>
+            </span>
+
+            <div
+              class="absolute bg-primary p-3 rounded-lg top-5 hidden"
+              id="srf-info"
+            >
+              <h2 class="font-semibold">Send Quotation</h2>
+              <p>
+                Have a building drawing you want us to wire, or an estimate you
+                want us to work with, or a sample (CCTV camera, solar panel,
+                etc) of what you require us to install for you? send it via
+                image or PDF
+              </p>
+            </div>
+          </span>
+          <span>
+            <label for="pdf"
+              >PDF
+              <input
+                type="file"
+                name="pdf"
+                id=""
+                placeholder="pdf"
+                (change)="fileChanged($event)"
+            /></label>
+            <label for="pdf"
+              >Image
+              <input
+                type="file"
+                name="pdf"
+                id=""
+                placeholder="pdf"
+                (change)="fileChanged($event)"
+            /></label>
+
+            <!-- <input type="file" name="image" id="" placeholder="image" /> -->
+          </span>
+
+          <p class="text-primary my-2 font-semibold">
+            What service do you require?
+          </p>
+          <span class="flex justify-between">
+            <span class="flex gap-2 items-center">
+              <input
+                class="text-primary"
+                type="radio"
+                name="cctv"
+                id=""
+              /><label for="CCTV">CCTV Installation</label>
+            </span>
+            <span class="flex gap-2 items-center">
+              <input type="radio" name="solar" id="" /><label for="CCTV"
+                >Solar Installation</label
+              >
+            </span>
+          </span>
+          <span class="flex justify-between my-2">
+            <span class="flex gap-2 items-center">
+              <input type="radio" name="home" id="" /><label for="CCTV"
+                >Home Automation</label
+              >
+            </span>
+            <span class="flex gap-2 items-center">
+              <input type="radio" name="electrical" id="" /><label for="CCTV"
+                >Electrical Wiring</label
+              >
+            </span>
+          </span>
+          <button class="w-full">Submit Request</button>
+        </form>
+      </div>
+    </div>
+    <!-- ############## END OF service request form ############### -->
+
+    <!-- ############## FOOTER ################ -->
+    <footer class="bg-grey text-white">
+      <section class="pad">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="mb-5">
+            <div class="bg-primary pt-2 md:mr-5 rounded-lg -mt-32">
+              <div class="bg-white rounded-lg text-black p-4">
+                <div class="flex justify-center">
+                  <img src="{% static './assets/img/flogo.webp' %}" alt="logo" />
+                </div>
+                <ul>
+                  <li class="flex gap-4 items-center">
+                    <i class="fa-solid fa-location-dot text-primary"> </i>
+                    <p>Asaba, Lekki & Lagos</p>
+                  </li>
+                  <li class="flex gap-4 items-center my-3">
+                    <i class="fa-solid fa-phone-volume text-primary"> </i>
+                    <p>07034373417</p>
+                  </li>
+                  <li class="flex gap-4 items-center">
+                    <i class="fa-solid fa-envelope text-primary"> </i>
+                    <p>pecotech@gmail.com</p>
+                  </li>
+                  <li class="mt-3 flex items-cener justify-between">
+                    <p>@pecotechng</p>
+                    <span class="flex gap-3">
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-facebook"></i>
+                      </a>
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-tiktok"></i>
+                      </a>
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-twitter"></i>
+                      </a>
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram"></i>
+                      </a>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="mb-5">
+            <h4 class="font-bold text-2xl mb-3 md:mb-6">
+              <span class="border-b-2 border-b-primary">Quick L</span>inks
+            </h4>
+            <ul class="leading-8">
+              <a href="/about.html">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i>About
+                  Us
+                </li>
+              </a>
+              <a href="#">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i>FAQs
+                </li>
+              </a>
+              <a href="#">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i
+                  >Testimonials
+                </li>
+              </a>
+              <a href="#">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i>Terms
+                  Of Service
+                </li>
+              </a>
+              <a href="#">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i
+                  >Privacy Policy
+                </li>
+              </a>
+              <a href="#">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i
+                  >Update News
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div class="mb-5">
+            <h4 class="font-bold text-2xl mb-3 md:mb-6">
+              <span class="border-b-2 border-b-primary">Our ser</span>vices
+            </h4>
+            <ul class="leading-8">
+              <a href="/services.html">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i
+                  >Electrical Wiring
+                </li>
+              </a>
+              <a href="/services.html">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i>Home
+                  Automation
+                </li>
+              </a>
+              <a href="/services.html">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i>Solar
+                  Installation
+                </li>
+              </a>
+              <a href="/services.html">
+                <li>
+                  <i class="fa-solid fa-caret-right text-primary mr-2"></i>CCTV
+                  Installation
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div class="mb-5">
+            <h4 class="font-bold text-2xl mb-3 md:mb-6">
+              <span class="border-b-2 border-b-primary">Newsle</span>tter
+            </h4>
+            <p>Subscribe our newsletter to get latest update and news</p>
+            <input
+              type="email"
+              name=""
+              id=""
+              class="my-3 rounded-xl py-2 px-3 w-full outline-none text-black"
+              placeholder="Your Email"
+            />
+            <button class="w-full">SUBSCRIBE NOW</button>
+          </div>
+        </div>
+        <div class="pad text-center mt-9">
+          <div
+            class="w-full h-1 bg-gradient-to-r from-black to-primary my-3"
+          ></div>
+          <p>
+            Copyright &copy; 2023
+            <a class="text-primary font-semibold" href="./index.html"
+              >Pecotech.
+            </a>
+            All Rights Reserved.
+          </p>
+        </div>
+      </section>
+    </footer>
+  </body>
+
+  <script src="{% static './assets/vendor/all.min.js' %}"></script>
+  <script src="{% static './assets/scripts/app.js' %}"></script>
+  <script src="{% static '/assets/scripts/testimonial.js' %}"></script>
+  <script src="{% static '/assets/vendor/splide.min.js' %}"></script>
+</html>
