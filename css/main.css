@@ -481,7 +481,7 @@ button {
   gap: 0.75rem;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(219 180 7 / var(--tw-bg-opacity));
+  background-color: rgb(255 175 29 / var(--tw-bg-opacity));
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1.75rem;
@@ -1161,7 +1161,7 @@ label {
 
 .border-primary {
   --tw-border-opacity: 1;
-  border-color: rgb(219 180 7 / var(--tw-border-opacity));
+  border-color: rgb(255 175 29 / var(--tw-border-opacity));
 }
 
 .border-b-grey {
@@ -1171,7 +1171,7 @@ label {
 
 .border-b-primary {
   --tw-border-opacity: 1;
-  border-bottom-color: rgb(219 180 7 / var(--tw-border-opacity));
+  border-bottom-color: rgb(255 175 29 / var(--tw-border-opacity));
 }
 
 .border-opacity-60 {
@@ -1211,15 +1211,15 @@ label {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(219 180 7 / var(--tw-bg-opacity));
+  background-color: rgb(255 175 29 / var(--tw-bg-opacity));
 }
 
 .bg-primary\/40 {
-  background-color: rgb(219 180 7 / 0.4);
+  background-color: rgb(255 175 29 / 0.4);
 }
 
 .bg-primary\/50 {
-  background-color: rgb(219 180 7 / 0.5);
+  background-color: rgb(255 175 29 / 0.5);
 }
 
 .bg-white {
@@ -1278,7 +1278,7 @@ label {
 }
 
 .to-primary {
-  --tw-gradient-to: #dbb407 var(--tw-gradient-to-position);
+  --tw-gradient-to: #ffaf1d var(--tw-gradient-to-position);
 }
 
 .object-cover {
@@ -1550,7 +1550,7 @@ label {
 
 .text-primary {
   --tw-text-opacity: 1;
-  color: rgb(219 180 7 / var(--tw-text-opacity));
+  color: rgb(255 175 29 / var(--tw-text-opacity));
 }
 
 .text-red-500 {
@@ -1600,7 +1600,7 @@ label {
 }
 
 .outline-primary {
-  outline-color: #dbb407;
+  outline-color: #ffaf1d;
 }
 
 .backdrop-blur-sm {
@@ -1723,7 +1723,7 @@ button#prev {
 
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
-  color: rgb(219 180 7 / var(--tw-text-opacity));
+  color: rgb(255 175 29 / var(--tw-text-opacity));
 }
 
 .focus\:outline-none:focus {
