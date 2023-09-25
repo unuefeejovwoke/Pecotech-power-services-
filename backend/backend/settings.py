@@ -72,6 +72,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
+AUTH_USER_MODEL = 'pecotechbd.CustomUser'
+
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

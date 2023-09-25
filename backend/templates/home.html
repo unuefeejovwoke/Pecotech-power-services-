@@ -26,7 +26,7 @@
       property="og:description"
       content="Discover top-tier electrical services with Pecotech. Our experts specialize in residential and commercial solutions, ensuring safety, efficiency, and reliability. Contact us today for all your electrical needs."
     />
-    <meta property="og:image" content="./assets/img/flogo.webp" />
+    <meta property="og:image" content="{% static './assets/img/flogo.webp' %}" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -36,7 +36,7 @@
       property="twitter:description"
       content="Discover top-tier electrical services with Pecotech. Our experts specialize in residential and commercial solutions, ensuring safety, efficiency, and reliability. Contact us today for all your electrical needs."
     />
-    <meta property="twitter:image" content="./assets/img/flogo.webp" />
+    <meta property="twitter:image" content="{% static './assets/img/flogo.webp' %}" />
 
     <!-- Meta Tags Generated with https://metatags.io -->
 
@@ -48,10 +48,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{% static './assets/vendor/all.min.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static './assets/vendor/splide.min.css' %}"
-    />
+    <link rel="stylesheet" href="{% static './assets/vendor/splide.min.css' %}" />
   </head>
   <body class="font-[Montserrat]">
     <!-- TOP BANNER -->
@@ -107,10 +104,7 @@
     <nav class="bg-white sticky top-0 py-3 z-30">
       <div class="pad flex justify-between">
         <a href="/index.html"
-          ><img
-            class="w-36 md:w-auto"
-            src="{% static './assets/img/logo.webp' %}"
-            alt="logo"
+          ><img class="w-36 md:w-auto" src="{% static './assets/img/logo.webp' %}" alt="logo"
         /></a>
         <div class="flex gap-4 items-center relative">
           <ul class="lg:flex gap-5 font-semibold hidden">
@@ -184,13 +178,13 @@
     <!-- ############ BEGIN HERO ############### -->
     <div class="bg-herobg">
       <section
-        class="text-white backdrop-brightness-50 h-full py-[58px] lg:py-[85px]"
+        class="text-white backdrop-brightness-50 h-full py-[58px] lg:py-[85px] flex justify-center items-center"
       >
-        <div class="pad max-w-[900px] md:mx-0">
+        <div class="pad max-w-[900px] md:mx-0 text-center">
           <h2 class="font-semibold md:text-2xl">
             <span class="text-primary">PECOTECH</span> Power Services
           </h2>
-          <h1 class="text-4xl md:text-6xl lg:text-7xl my-3 font-extrabold">
+          <h1 class="text-4xl md:text-4xl lg:text-6xl my-3 font-extrabold">
             Professional <span class="text-primary">Electrical </span>Services
           </h1>
           <p>
@@ -199,7 +193,7 @@
             praesentium cupiditate maiores voluptatem consequuntur atque quasi
             nulla!
           </p>
-          <button class="flex items-center gap-2 mt-4 serviceFormBtn">
+          <button class="flex items-center gap-2 mt-8 serviceFormBtn mx-auto">
             Request Services <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
@@ -248,43 +242,70 @@
     <!-- ####### END ABOUT SECTION ####### -->
 
     <!-- ####### SERVICE SECTION ######### -->
-    <section class="pad">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="text-center flex flex-col items-center">
-          <img
-            class="max-w-[6rem]"
-            src="{% static './assets/img/reliable.webp' %}"
-            alt="reliable"
-          />
-          <h2 class="text-primary font-bold font-xl mt-4">Reliable</h2>
-          <p>
-            With Pecotech, you know you will get exactly what we promised. We
-            always deliver on our promises!
-          </p>
-        </div>
-        <div class="text-center flex flex-col items-center my-auto">
-          <img
-            class="max-w-[7rem]"
-            src="{% static './assets/img/professional.webp' %}"
-            alt="professional"
-          />
-          <h2 class="text-primary font-bold font-xl mt-4">Professional</h2>
-          <p>
-            With Pecotech, you know you will get exactly what we promised. We
-            always deliver on our promises!
-          </p>
-        </div>
-        <div class="text-center flex flex-col items-center my-auto">
-          <img
-            class="max-w-[4.6rem]"
-            src="{% static './assets/img/responsive.webp' %}"
-            alt="responsive"
-          />
-          <h2 class="text-primary font-bold font-xl mt-4">Responsive</h2>
-          <p>
-            With Pecotech, you know you will get exactly what we promised. We
-            always deliver on our promises!
-          </p>
+
+    <section>
+      <div class="pad">
+        <div class="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="">
+            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-grey text-white flex-shrink-0"
+                >
+                  <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <h2 class="text-black font-semibold text-lg title-font">
+                  Reliable
+                </h2>
+              </div>
+              <div class="flex-grow">
+                <p class="leading-relaxed text-base">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eveniet dolore voluptate officia minima ratione qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class=" ">
+            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-grey text-white flex-shrink-0"
+                >
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h2 class="text-black font-semibold text-lg title-font">
+                  Professional
+                </h2>
+              </div>
+              <div class="flex-grow">
+                <p class="leading-relaxed text-base">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eveniet dolore voluptate officia minima ratione qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-grey text-white flex-shrink-0"
+                >
+                  <i class="fa-solid fa-truck-pickup"></i>
+                </div>
+                <h2 class="text-black font-semibold text-lg title-font">
+                  Responsive
+                </h2>
+              </div>
+              <div class="flex-grow">
+                <p class="leading-relaxed text-base">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eveniet dolore voluptate officia minima ratione qui?
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -476,10 +497,7 @@
           >
             <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
               <div class="max-w-[4rem]">
-                <img
-                  src="{% static './assets/img/testing.webp' %}"
-                  alt="accurate testing"
-                />
+                <img src="{% static './assets/img/testing.webp' %}" alt="accurate testing" />
               </div>
               <h2 class="font-semibold mt-4">Accurate Testing</h2>
             </div>
@@ -497,19 +515,13 @@
             </div>
             <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
               <div class="max-w-[4rem]">
-                <img
-                  src="{% static './assets/img/emergency.webp' %}"
-                  alt="accurate testing"
-                />
+                <img src="{% static './assets/img/emergency.webp' %}" alt="accurate testing" />
               </div>
               <h2 class="font-semibold mt-4">24/7 Emergency</h2>
             </div>
             <div class="rounded-xl bg-grey/30 p-4 flex flex-col items-center">
               <div class="max-w-[4rem]">
-                <img
-                  src="{% static './assets/img/atesting.webp' %}"
-                  alt="accurate testing"
-                />
+                <img src="{% static './assets/img/atesting.webp' %}" alt="accurate testing" />
               </div>
               <h2 class="font-semibold mt-4">Accurate Testing</h2>
             </div>
@@ -728,7 +740,7 @@
     <!-- ########### END OF TEAM ################# -->
 
     <!-- ######### FAQ SECTION ######### -->
-    <section>
+    <section id="faq">
       <div class="pad">
         <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
           Discover FAQ from our <span class="text-primary">support</span>
@@ -826,7 +838,7 @@
     <!-- ######### END FAQ SECTION ######### -->
 
     <!-- ###### OUR CLIENT SATISFACTION ###### -->
-    <div class="pad">
+    <div class="pad" id="testimonials">
       <h1 class="font-bold text-xl lg:text-3xl underline mb-4">
         Our Clients <span class="text-primary">Satisfaction</span>
       </h1>
@@ -878,10 +890,7 @@
                 <div
                   class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
                 >
-                  <img
-                    src="{% static '/assets/img/bso.webp' %}"
-                    alt="book service online"
-                  />
+                  <img src="{% static '/assets/img/bso.webp' %}" alt="book service online" />
                 </div>
                 <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
                   <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
@@ -911,10 +920,7 @@
                 <div
                   class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
                 >
-                  <img
-                    src="{% static '/assets/img/cr.webp' %}"
-                    alt="confirm request"
-                  />
+                  <img src="{% static '/assets/img/cr.webp' %}" alt="confirm request" />
                 </div>
                 <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
                   <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
@@ -974,10 +980,7 @@
                 <div
                   class="flex-shrink-0 w-24 h-24 bg-grey/60 text-grey rounded-full inline-flex items-center justify-center"
                 >
-                  <img
-                    src="{% static '/assets/img/cyw.webp' %}"
-                    alt="complete your works"
-                  />
+                  <img src="{% static '/assets/img/cyw.webp' %}" alt="complete your works" />
                 </div>
                 <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
                   <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
@@ -1249,11 +1252,7 @@
           <i class="fa-solid fa-times"></i>
         </span>
         <div class="flex justify-center">
-          <img
-            class="w-24"
-            src="{% static './assets/img/flogo.webp' %}"
-            alt="logo"
-          />
+          <img class="w-24" src="{% static './assets/img/flogo.webp' %}" alt="logo" />
         </div>
         <div
           class="w-full bg-primary bg-opacity-30 rounded-lg mb-4 text-center p-3 text-xs"
@@ -1373,10 +1372,7 @@
             <div class="bg-primary pt-2 md:mr-5 rounded-lg -mt-32">
               <div class="bg-white rounded-lg text-black p-4">
                 <div class="flex justify-center">
-                  <img
-                    src="{% static './assets/img/flogo.webp' %}"
-                    alt="logo"
-                  />
+                  <img src="{% static './assets/img/flogo.webp' %}" alt="logo" />
                 </div>
                 <ul>
                   <li class="flex gap-4 items-center">
