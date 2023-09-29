@@ -7,6 +7,8 @@ def home(request):
     return render(request , 'home.html')
 
 def login_view(request):
+    # if request.user.is_authenticated:
+    #     return redirect("dashboard")
     if request.method == 'POST':
         print("hi")
         email = request.POST.get('email')  # Use get() to avoid MultiValueDictKeyError
@@ -24,6 +26,12 @@ def login_view(request):
 
     # Handle failed login or display login form
     return render(request, 'accounts/login.html')
+
+
+def registration_view(request):
+    return render(request, 'accounts/signup.html')
+
+
 
 def dashboard(request):
     return render(request, 'template/profile.html')
