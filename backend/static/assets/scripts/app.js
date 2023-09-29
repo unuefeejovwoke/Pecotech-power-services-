@@ -112,71 +112,39 @@ document.addEventListener("DOMContentLoaded", function () {
   loginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const emailInput = document.getElementById("emailInput");
-    const passwordInput = document.getElementById("passwordInput");
+    const emailInput = document.getElementById("emailInput").value;
+    const passwordInput = document.getElementById("passwordInput").value;
+    const csrf_token = $('input[name=csrfmiddlewaretoken]').val()
 
-    const enteredEmail = emailInput.value;
-    const enteredPassword = passwordInput.value;
 
-    const csrfToken = getCookie("csrftoken"); // Function to retrieve CSRF token
-
-    const response = await fetch('/login/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrfToken,
+    // alert(csrf_token)
+    data = $.ajax({
+      type: "POST",
+      url: "/login/",
+      data: {
+        email: emailInput,
+        password: passwordInput,
+        csrfmiddlewaretoken: csrf_token
       },
-      body: JSON.stringify({
-        email: enteredEmail,
-        password: enteredPassword,
-      }),
-    });
 
-    const data = await response.json();
+      // success to make sure the data is send to the backend
+      success: function (data) {
 
-    if (response.ok) {
-      // Successful login
-      successModal.classList.remove("hidden");
-      setTimeout(function () {
-        successModal.classList.add("hidden");
-        window.location.href = "dashboard.html"; // Redirect after 2000ms
-      }, 2000);
-    } else {
-      // Failed login
-      const errorMessage = data.message || 'Login failed. Please try again.';
-      errorModal.innerHTML = `
-        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-          <div class="fixed inset-0 transition-opacity">
-            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-          </div>
-          <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
-          <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full py-5">
-            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <div class="flex flex-col items-center">
-                <img class="w-16" src="/assets/img/failed.gif" alt="error" />
-                <div class="text-center mt-4">
-                  <h2 class="font-semibold text-2xl mb-1">Access Denied</h2>
-                  <p>${errorMessage}</p>
-                </div>
-              </div>
-            </div>
-            <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button id="closeModalButton" class="bg-grey text-white">Close</button>
-            </div>
-          </div>
-        </div>
-      `;
+        // we catch http response from the backend with is data "ok" and set required condition
+        if (data == "ok") {
+          location.href = "/dashboard"
+        }
+        else {
+          alert("fail")
+        }
 
-      errorModal.classList.remove("hidden");
-      setTimeout(function () {
-        errorModal.classList.add("hidden");
-      }, 6000);
+      },
+      // fail if the data is not submited
+      fail: function () {
+        alert("bad")
+      }
+    })
 
-      const closeModalButton = document.getElementById("closeModalButton");
-      closeModalButton.addEventListener("click", function () {
-        errorModal.classList.add("hidden");
-      });
-    }
   });
 
   const modalOverlay = document.querySelector(".modal .transition-opacity");
