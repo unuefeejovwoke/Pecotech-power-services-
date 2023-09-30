@@ -1,6 +1,8 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .forms import UserRegisterForm
+
 
 # Create your views here.
 def home(request):
@@ -25,11 +27,19 @@ def login_view(request):
         
 
     # Handle failed login or display login form
-    return render(request, 'accounts/login.html')
+    return render(request, 'accounts/auth.html')
 
 
 def registration_view(request):
-    return render(request, 'accounts/signup.html')
+    form = UserRegisterForm()
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            return redirect("login")
+    return render(request, 'accounts/auth.html', {"register":"register","form":form})
 
 
 

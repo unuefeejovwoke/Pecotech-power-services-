@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,13 +52,46 @@
     </section>
   </div>
   <!-- ############## END HERO ########### -->
+{% if register %}
+   <!-- ############## LOGIN FORM ############## -->
+   <section>
+    <div class="pad grid grid-cols-1 md:grid-cols-2">
+      <div class="mr-5 lg:mr-10">
+        <div class="flex flex-col items-center text-center">
+          <img src="{% static 'assets/img/flogo.webp' %}" alt="logo" />
+          <h1 class="font-bold text-2xl">Create an account</h1>
+          <p class="my-2">Let's get started with your pecotech account</p>
+        </div>
+        <form class="mt-6" action="" method="POST">
+          {% csrf_token %}
+         {{ form|crispy }}
+          <button class="w-full">Create account</button>
+          <button class="w-full my-3 bg-white border-grey border">
+            Sign in with Google
+          </button>
+          <button class="w-full bg-white border-grey border">
+            Sign in with Facebook
+          </button>
+        </form>
+        <div class="text-center my-4">
+          <p>
+            Already have an account?
+            <a class="font-semibold" href="./login.html">Login</a>
+          </p>
+        </div>
+      </div>
+      <img src="{% static 'assets/img/login.webp' %}" alt="pecotech engineer" />
+    </div>
+  </section>
+  <!-- ############## END LOGIN FORM ############## -->
 
+  {% else %}
   <!-- ############## LOGIN FORM ############## -->
   <section>
     <div class="pad grid grid-cols-1 md:grid-cols-2">
       <div class="mr-5 lg:mr-10">
         <div class="flex flex-col items-center text-center">
-          <img src="{% static './assets/img/flogo.webp' %}" alt="logo" />
+          <img src="{% static 'assets/img/flogo.webp' %}" alt="logo" />
           <h1 class="font-bold text-2xl">Account Login</h1>
           <p class="my-2">Login to access your pecotech account</p>
         </div>
@@ -82,6 +116,8 @@
     </div>
   </section>
   <!-- ############## END LOGIN FORM ############## -->
+
+{% endif %}
 
   <!-- ############# SUCCESS & ERROR MODALS ############## -->
   <!-- Error Modal -->
