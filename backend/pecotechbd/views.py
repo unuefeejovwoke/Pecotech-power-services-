@@ -1,5 +1,7 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
+from django.contrib import messages
+
 from django.http import HttpResponse
 from .forms import UserRegisterForm
 
@@ -41,7 +43,12 @@ def registration_view(request):
             return redirect("login")
     return render(request, 'accounts/auth.html', {"register":"register","form":form})
 
+def custom_logout(request):
+    # Logout the user
+    logout(request)
 
+    messages.success(request, 'You have been successfully logged out.')
+    return redirect('login')
 
 def dashboard(request):
-    return render(request, 'template/profile.html')
+    return render(request, 'accounts/profile.html')

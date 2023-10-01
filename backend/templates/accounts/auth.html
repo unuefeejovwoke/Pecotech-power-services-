@@ -46,12 +46,14 @@
     <section class="text-white backdrop-brightness-50 h-full py-[58px] lg:py-[85px]">
       <div class="pad">
         <h1 class="text-4xl md:text-5xl lg:text-6xl mt-2 font-extrabold">
-          <span class="border-b-4 border-b-primary">Accoun</span>t Login
+          <span class="border-b-4 border-b-primary">Account</span> Login
         </h1>
       </div>
     </section>
   </div>
   <!-- ############## END HERO ########### -->
+
+{% include "alerts/alert.html" %}
 {% if register %}
    <!-- ############## LOGIN FORM ############## -->
    <section>
@@ -76,7 +78,7 @@
         <div class="text-center my-4">
           <p>
             Already have an account?
-            <a class="font-semibold" href="./login.html">Login</a>
+            <a class="font-semibold" href='{% url "login" %}'>Login</a>
           </p>
         </div>
       </div>
@@ -108,7 +110,7 @@
         <div class="text-center my-4">
           <p>
             Don't have an account?
-            <a class="font-semibold" href="./signup.html">signup</a>
+            <a class="font-semibold" href='{% url "register" %}'>signup</a>
           </p>
         </div>
       </div>
@@ -229,6 +231,8 @@
   <!-- ############## FOOTER ################ -->
   {% include "components/footer.html" %}
 </body>
+
+<!-- Latest compiled and minified CSS -->
 
 <script src="{% static './assets/vendor/all.min.js' %}"></script>
 <script src="{% static './assets/scripts/app.js' %}"></script>

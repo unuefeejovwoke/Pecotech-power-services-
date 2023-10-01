@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="flex flex-col items-center">
-                <img class="w-16" src="{% static '/assets/img/failed.gif' %}" alt="failed" />
+                <img class="w-16" src="/static/assets/img/failed.gif" alt="failed" />
                 <div class="text-center mt-4">
                   <h2 class="font-semibold text-2xl mb-1">Access Denied</h2>
                   <p>
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="flex flex-col items-center">
-                <img class="w-16" src="{% static '/assets/img/failed.gif' %}" alt="failed" />
+                <img class="w-16" src="/static/assets/img/failed.gif" alt="failed" />
                 <div class="text-center mt-4">
                   <h2 class="font-semibold text-2xl mb-1">Access Denied</h2>
                   <p>Incorrect Login Credentials</p>
