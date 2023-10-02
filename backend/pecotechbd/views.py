@@ -1,6 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
+import smtplib
+from django.core.mail import EmailMessage
+
 
 from django.http import HttpResponse
 from .forms import UserRegisterForm
@@ -40,8 +43,22 @@ def registration_view(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
+
+            # Send a welcome email to the user
+            subject = 'Welcome to Your Website'
+            message = 'Thank you for registering on Your Website. We are excited to have you!'
+            from_email = 'seu7.tech@gmail.com'
+            recipient_list = [user.email]
+
+            try:
+                email = EmailMessage(subject, message, from_email, recipient_list)
+                email.send()
+                messages.success(request, 'Your account was created successfully, and a welcome email has been sent.')
+            except smtplib.SMTPException as e:
+                messages.error(request, 'There was an error sending the welcome email. Please contact support.')
+
             return redirect("login")
-    return render(request, 'accounts/auth.html', {"register":"register","form":form})
+    return render(request, 'accounts/auth.html', {"register": "register", "form": form})
 
 def custom_logout(request):
     # Logout the user
