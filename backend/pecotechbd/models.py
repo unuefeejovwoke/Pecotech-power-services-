@@ -37,10 +37,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
 class UserProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    # Add fields for user profile information, e.g., profile picture, bio, etc.
+    number = models.CharField(max_length=15, blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
-    bio = models.TextField(blank=True)
-
+    
     def __str__(self):
         return self.user.email
 

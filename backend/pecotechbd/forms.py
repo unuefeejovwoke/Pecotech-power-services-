@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
+from .models import UserProfile
 from django import forms
 
 class CustomTextWidget(forms.TextInput):
@@ -29,3 +30,18 @@ class UserRegisterForm(UserCreationForm):
         fields = [
              'username', 'email', 'password1', 'password2'
         ]
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['number', 'profile_picture']
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser  # Use your custom User model
+        fields = ['username', 'email']
+
+class PasswordChangeForm(forms.Form):
+    current_password = forms.CharField(widget=forms.PasswordInput)
+    new_password1 = forms.CharField(widget=forms.PasswordInput)
+    new_password2 = forms.CharField(widget=forms.PasswordInput)

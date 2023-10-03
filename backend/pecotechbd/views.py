@@ -1,8 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .forms import UserProfileForm, UserEditForm, PasswordChangeForm 
 import smtplib
 from django.core.mail import EmailMessage
+from .models import UserProfile
 
 
 from django.http import HttpResponse
@@ -44,6 +47,10 @@ def registration_view(request):
             user.username = user.username.lower()
             user.save()
 
+            # Create a UserProfile instance for the user
+            user_profile = UserProfile(user=user)
+            user_profile.save()
+
             # Send a welcome email to the user
             subject = 'Welcome to Your Website'
             message = 'Thank you for registering on Your Website. We are excited to have you!'
@@ -69,3 +76,22 @@ def custom_logout(request):
 
 def dashboard(request):
     return render(request, 'accounts/profile.html')
+
+@login_required
+def edit_profile(request):
+    # Get the current user's profile
+    profile = request.user.userprofile
+
+    if request.method == "POST":
+        form = UserProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully.")
+            return redirect("edit_profile")  # Redirect to the edit profile page
+    else:
+        initial_data = {
+            "number": profile.number,
+        }
+        form = UserProfileForm(instance=profile, initial=initial_data)
+
+    return render(request, "accounts/edit_profile.html", {"form": form})

@@ -5,7 +5,7 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('email', 'username', 'first_name', 'last_name', 'is_staff')
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'profile_picture', 'bio')
+    list_display = ('user', 'profile_picture', 'number')
 
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)

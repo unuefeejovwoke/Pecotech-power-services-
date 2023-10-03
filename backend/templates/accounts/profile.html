@@ -88,20 +88,25 @@
             class="p-6 text-lg flex justify-center flex-col md:w-[50%] lg:w-full"
           >
             <div class="flex flex-col items-center mb-6">
-              <h1 class="font-bold text-2xl">Allan Freeborn</h1>
-              <p>allanfreeborn@gmail.com</p>
+              <h1 class="font-bold text-2xl">{{user.username}}</h1>
+              <p>{{user.email}}</p>
               <a
-                href="/edit-profile.html"
+                href="{% url 'edit_profile' %}"
                 class="text-primary flex gap-2 items-center"
                 ><i class="fa-solid fa-edit"></i>
-                <p>Edit Profile</p></a
-              >
+                <p>Edit Profile</p></a>
+              
             </div>
             <ul>
               <li>30 Projects Completed</li>
               <li>8 Projects in Progress</li>
               <li>2 Projects in Review</li>
             </ul>
+            <div style="text-align: center; color: #ffaf1d;">
+              <a href="{% url 'logout' %}">Logout</a>
+
+            </div>
+            
           </div>
         </div>
 
