@@ -88,10 +88,14 @@ def edit_profile(request):
             form.save()
             messages.success(request, "Profile updated successfully.")
             return redirect("edit_profile")  # Redirect to the edit profile page
+        else:
+            messages.error(request, "Please correct the errors below.")
     else:
         initial_data = {
             "number": profile.number,
         }
+  
         form = UserProfileForm(instance=profile, initial=initial_data)
 
     return render(request, "accounts/edit_profile.html", {"form": form})
+

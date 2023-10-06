@@ -49,127 +49,7 @@
   </head>
   <body class="font-[Montserrat]">
     <!-- TOP BANNER -->
-    <div class="bg-primary py-2 text-[12px] z-30 text-white">
-      <div
-        class="pad flex justify-between font-semibold flex-col items-center text-center md:flex-row z-40"
-      >
-        <div>Reliable Solutions To Your Home, Available 24/7</div>
-        <div class="flex items-center flex-col lg:flex-row">
-          <span>
-            <i class="fa-solid fa-phone-volume mr-2"></i>Emergency Service:
-            (234) 0807 387 6832
-          </span>
-          <span class="flex gap-3 items-center lg:ml-3">
-            <i class="fa-solid fa-grip-lines-vertical"></i>
-            <a href="mailto:pecotechng@gmail.com">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a
-              href="https://instagram.com/pecotechng?igshid=NTc4MTIwNjQ2YQ=="
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/pecotech/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a
-              href="https://vm.tiktok.com/ZM2J6Dx9r/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a
-              href="https://www.facebook.com/pecotechng01"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-facebook"></i>
-            </a>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ###########  NAVBAR  ################# -->
-    <nav class="bg-white sticky top-0 py-3 z-30">
-      <div class="pad flex justify-between">
-        <a href="/index.html"
-          ><img class="w-36 md:w-auto" src="{% static './assets/img/logo.webp' %}" alt="logo"
-        /></a>
-        <div class="flex gap-4 items-center relative">
-          <ul class="lg:flex gap-5 font-semibold hidden">
-            <a href="/index.html">
-              <li class="hover:text-primary">Home</li>
-            </a>
-            <a href="/about.html">
-              <li class="hover:text-primary">About</li>
-            </a>
-            <a href="./services.html">
-              <li class="hover:text-primary">Services</li>
-            </a>
-            <a href="/portfolio.html">
-              <li class="hover:text-primary">Portfolio</li>
-            </a>
-            <a href="/blog.html">
-              <li class="hover:text-primary">Blog</li>
-            </a>
-            <a href="/contact.html">
-              <li class="hover:text-primary">Contact Us</li>
-            </a>
-            <a href="/login.html">
-              <i class="fa-solid fa-user text-primary"></i>
-            </a>
-          </ul>
-
-          <button class="hidden md:flex ml-2 serviceFormBtn">
-            GET A QUOTE <i class="fa-solid fa-arrow-right ml-1"></i>
-          </button>
-          <!-- hambuger -->
-          <span class="lg:hidden ml-3" id="ham">
-            <i class="fa-solid fa-bars cursor-pointer"></i>
-          </span>
-          <!-- mobile menu -->
-          <div
-            class="bg-white -z-10 p-10 top-0 right-0 hidden w-[20rem] rounded-lg absolute pt-24 flex justify-center lg:hidden"
-            id="menu"
-          >
-            <ul class="gap-5 flex flex-col font-semibold">
-              <a href="/index.html">
-                <li class="hover:text-primary">Home</li>
-              </a>
-              <a href="/about.html">
-                <li class="hover:text-primary">About</li>
-              </a>
-              <a href="./services.html">
-                <li class="hover:text-primary">Services</li>
-              </a>
-              <a href="/portfolio.html">
-                <li class="hover:text-primary">Portfolio</li>
-              </a>
-              <a href="/blog.html">
-                <li class="hover:text-primary">Blog</li>
-              </a>
-              <a href="/contact.html">
-                <li class="hover:text-primary">Contact Us</li>
-              </a>
-              <a href="/login.html">
-                <i class="fa-solid fa-user text-primary"></i>
-              </a>
-              <button class="serviceFormBtn">
-                GET A QUOTE <i class="fa-solid fa-arrow-right ml-1"></i>
-              </button>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+    {% include "components/navbar.html" %}
     <!--############## END OF NAV ############## -->
 
     <!-- ########## BANNER ########## -->
@@ -199,7 +79,8 @@
             <h1 class="font-bold text-2xl">Edit Profile</h1>
             <p class="my-2">Edit the required fields and save changes</p>
           </div>
-          <form class="mt-6" method="post" action="" enctype="multipart/form-data">
+          <form class="mt-6" method="post" enctype="multipart/form-data">
+
             {% csrf_token %}
             <input class="w-full border-b-2 p-3 my-2 outline-none" type="text" name="username" placeholder="Username" value="{{ user.username }}" required />
             <input class="w-full border-b-2 p-3 my-2 outline-none" type="email" name="email" placeholder="Email" value="{{ user.email }}" required />
@@ -212,7 +93,7 @@
             <button class="w-full my-4" type="submit" style="background-color: #ffaf1d;">
                 Save Changes <i class="fa-solid fa-arrow-right"></i>
             </button>
-        </form>
+          </form>
         
         </div>
         <div
