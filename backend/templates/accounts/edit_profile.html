@@ -80,21 +80,57 @@
             <p class="my-2">Edit the required fields and save changes</p>
           </div>
           <form class="mt-6" method="post" enctype="multipart/form-data">
-
             {% csrf_token %}
-            <input class="w-full border-b-2 p-3 my-2 outline-none" type="text" name="username" placeholder="Username" value="{{ user.username }}" required />
-            <input class="w-full border-b-2 p-3 my-2 outline-none" type="email" name="email" placeholder="Email" value="{{ user.email }}" required />
-            <input class="w-full border-b-2 p-3 my-2 outline-none" type="tel" name="number" placeholder="Phone Number" value="{{ user.profile.number }}" required />
-            <input class="w-full border-b-2 p-3 my-2 outline-none" type="password" name="old_password" placeholder="Old Password" required />
-            <input class="w-full border-b-2 p-3 my-2 outline-none" type="password" name="new_password1" placeholder="New Password" required />
-            <input class="w-full border-b-2 p-3 my-2 outline-none" type="password" name="new_password2" placeholder="Confirm New Password" required />
-            <input class="w-full border-b-2 p-3 my-2 outline-none" type="file" name="profile_pic" accept="image/*" />
-        
-            <button class="w-full my-4" type="submit" style="background-color: #ffaf1d;">
+            {{ user_form.username }}
+            {{ user_form.email }}
+            {{ user_form.first_name }}
+            {{ user_form.last_name }}
+            {{ profile_form.number }}
+            {{ profile_form.profile_picture }}
+            
+            <button class="w-full my-4" type="submit" name="profile_submit"  style="background-color: #ffaf1d;">
                 Save Changes <i class="fa-solid fa-arrow-right"></i>
             </button>
-          </form>
-        
+        </form>
+        <h1 class="font-bold text-2xl">Change Password</h1>
+
+        <form class="mt-6" method="post">
+          {% csrf_token %}
+          
+          <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="password"
+              name="{{ password_form.current_password }}"
+              placeholder="Current Password"
+              required
+          />
+          <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="password"
+              name="{{ password_form.new_password1.name }}"
+              placeholder="New Password"
+              required
+          />
+          <input
+              class="w-full border-b-2 p-3 my-2 outline-none"
+              type="password"
+              name="{{ password_form.new_password2.name }}"
+              placeholder="Confirm New Password"
+              required
+          />
+          {% if field.errors %}
+          <div class="text-red-600">
+              {{ field.errors|join:", " }}
+          </div>
+        {% endif %}
+   
+          
+          <button class="w-full my-4" type="submit" name="password_submit" style="background-color: #ffaf1d;">
+              Change Password <i class="fa-solid fa-arrow-right"></i>
+          </button>
+      </form>
+      
+ 
         </div>
         <div
           class="rounded-lg overflow-hidden relative max-w-[400px] h-fit mx-auto"
@@ -108,13 +144,12 @@
             <i class="fa-solid fa-camera"></i>
           </div> {% endcomment %}
 
-          {% if user.profile.profile_picture %}
-    <!-- Render the user's profile picture if available -->
-        <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" />
-        {% else %}
-        <!-- Display a default profile picture if the user doesn't have one -->
-        <img src="{% static './assets/img/profile.webp' %}" alt="pecotech engineer" />
-        {% endif %}
+          {% if profile_picture %}
+              <img src="{{ profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" />
+          {% else %}
+              <!-- Display a default profile picture if the user doesn't have one -->
+              <img src="{% static './assets/img/profile.webp' %}" alt="pecotech engineer" />
+          {% endif %}
         </div>
       </div>
     </section>

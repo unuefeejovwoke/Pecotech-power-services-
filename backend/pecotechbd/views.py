@@ -2,7 +2,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserProfileForm, UserEditForm, PasswordChangeForm 
+from .forms import UserProfileForm, UserEditForm
+from django.contrib.auth.forms import PasswordChangeForm 
 import smtplib
 from django.core.mail import EmailMessage
 from .models import UserProfile
@@ -74,28 +75,51 @@ def custom_logout(request):
     messages.success(request, 'You have been successfully logged out.')
     return redirect('login')
 
+@login_required
 def dashboard(request):
-    return render(request, 'accounts/profile.html')
+    user_profile = UserProfile.objects.get(user=request.user)  
+    profile_picture = user_profile.profile_picture  
+
+    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture})
+
 
 @login_required
 def edit_profile(request):
-    # Get the current user's profile
-    profile = request.user.userprofile
+    user_profile = UserProfile.objects.get(user=request.user)  
+    profile_picture = user_profile.profile_picture  
+
+    user_form = UserEditForm(instance=request.user)
+    profile_form = UserProfileForm(instance=request.user.userprofile)
+    password_form = PasswordChangeForm(request.user)
 
     if request.method == "POST":
-        form = UserProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Profile updated successfully.")
-            return redirect("edit_profile")  # Redirect to the edit profile page
-        else:
-            messages.error(request, "Please correct the errors below.")
-    else:
-        initial_data = {
-            "number": profile.number,
-        }
-  
-        form = UserProfileForm(instance=profile, initial=initial_data)
+        if "profile_submit" in request.POST:
+            # Handle profile editing
+            user_form = UserEditForm(request.POST, instance=request.user)
+            profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                messages.success(request, "Profile updated successfully.")
+                return redirect("edit_profile")
+            else:
+                messages.error(request, "Please correct the errors below.")
+        elif "password_submit" in request.POST:
+            # Handle password change
+            password_form = PasswordChangeForm(request.user, request.POST)
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, "Your password was successfully updated.")
+                return redirect("edit_profile")
+            else:
+                messages.error(request, "Please correct the errors below.")
 
-    return render(request, "accounts/edit_profile.html", {"form": form})
+    return render(
+        request,
+        "accounts/edit_profile.html",
+        {"user_form": user_form, "profile_form": profile_form, "password_form": password_form, 'profile_picture': profile_picture},
+)
+
+
 

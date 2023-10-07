@@ -79,11 +79,13 @@
         <div
           class="bg-white max-w-[350px] md:max-w-[800px] mx-auto flex flex-col md:flex-row lg:max-w-[350px] lg:flex-col"
         >
-          <img
-            class="md:w-[50%] lg:w-full"
-            src="{% static './assets/img/demouser.webp' %}"
-            alt="user profile picture"
-          />
+        {% if profile_picture %}
+        <img src="{{ profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" />
+        {% else %}
+            <!-- Display a default profile picture if the user doesn't have one -->
+            <img src="{% static 'path_to_default_profile_picture.png' %}" alt="Default Profile Picture" />
+        {% endif %}
+    
           <div
             class="p-6 text-lg flex justify-center flex-col md:w-[50%] lg:w-full"
           >

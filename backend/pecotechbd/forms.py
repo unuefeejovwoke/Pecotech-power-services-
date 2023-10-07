@@ -35,13 +35,36 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['number', 'profile_picture']
+        widgets = {
+            'number': forms.TextInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none', 'placeholder': 'Phone Number'}),
+            'profile_picture': forms.FileInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none'}),
+        }
 
 class UserEditForm(forms.ModelForm):
     class Meta:
-        model = CustomUser  # Use your custom User model
-        fields = ['username', 'email']
+        model = CustomUser
+        fields = ['username', 'email', 'first_name', 'last_name']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none', 'placeholder': 'Username'}),
+            'email': forms.EmailInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none', 'placeholder': 'Email'}),
+            'first_name': forms.TextInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none', 'placeholder': 'Last Name'}),
+        }
 
-class PasswordChangeForm(forms.Form):
-    current_password = forms.CharField(widget=forms.PasswordInput)
-    new_password1 = forms.CharField(widget=forms.PasswordInput)
-    new_password2 = forms.CharField(widget=forms.PasswordInput)
+
+
+# class PasswordChangeForm(forms.Form):
+   
+
+#     current_password = forms.CharField(
+#         widget=forms.PasswordInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none'}),
+#         label="Current Password"
+#     )
+#     new_password1 = forms.CharField(
+#         widget=forms.PasswordInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none'}),
+#         label="New Password"
+#     )
+#     new_password2 = forms.CharField(
+#         widget=forms.PasswordInput(attrs={'class': 'w-full border-b-2 p-3 my-2 outline-none'}),
+#         label="Confirm New Password"
+#     )
