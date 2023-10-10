@@ -1,9 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import UserProfileForm, UserEditForm
-from django.contrib.auth.forms import PasswordChangeForm 
+from .forms import UserProfileForm, UserEditForm, CustomPasswordChangeForm
+ 
 import smtplib
 from django.core.mail import EmailMessage
 from .models import UserProfile
@@ -85,12 +88,12 @@ def dashboard(request):
 
 @login_required
 def edit_profile(request):
-    user_profile = UserProfile.objects.get(user=request.user)  
-    profile_picture = user_profile.profile_picture  
+    user_profile = UserProfile.objects.get(user=request.user)
+    profile_picture = user_profile.profile_picture
 
     user_form = UserEditForm(instance=request.user)
     profile_form = UserProfileForm(instance=request.user.userprofile)
-    password_form = PasswordChangeForm(request.user)
+   
 
     if request.method == "POST":
         if "profile_submit" in request.POST:
@@ -104,22 +107,19 @@ def edit_profile(request):
                 return redirect("edit_profile")
             else:
                 messages.error(request, "Please correct the errors below.")
-        elif "password_submit" in request.POST:
-            # Handle password change
-            password_form = PasswordChangeForm(request.user, request.POST)
-            if password_form.is_valid():
-                user = password_form.save()
-                update_session_auth_hash(request, user)
-                messages.success(request, "Your password was successfully updated.")
-                return redirect("edit_profile")
-            else:
-                messages.error(request, "Please correct the errors below.")
 
     return render(
         request,
         "accounts/edit_profile.html",
-        {"user_form": user_form, "profile_form": profile_form, "password_form": password_form, 'profile_picture': profile_picture},
-)
+        {"user_form": user_form, "profile_form": profile_form, 'profile_picture': profile_picture},
+    )
 
+class PasswordsChangeView(PasswordChangeView):
+    form_class = CustomPasswordChangeForm
+    success_url = reverse_lazy('edit_profile')
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Your password has been successfully changed.')
+        return super().form_valid(form)
 
 

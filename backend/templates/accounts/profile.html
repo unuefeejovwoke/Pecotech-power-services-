@@ -1,4 +1,6 @@
 {% load static %}
+{% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,9 +64,9 @@
             class="text-xl md:text-3xl lg:text-6xl mt-2 font-extrabold text-primary"
           >
             <span class="border-b-4 border-b-primary text-white"
-              >Good Evening</span
+              >{{ "now"|time_based_greeting }}</span
             >
-            Allan
+            {{user.first_name}}
           </h1>
         </div>
       </section>

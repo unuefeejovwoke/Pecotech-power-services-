@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_tailwind',
     'pecotechbd',
+    'pecotechbd.templatetags',
 ]
 
 
@@ -81,7 +82,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 AUTH_USER_MODEL = 'pecotechbd.CustomUser'
 
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',  
+#     'pecotechbd.backends.CustomUserBackend',  
+# ]
 
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     # ...
+# ]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
