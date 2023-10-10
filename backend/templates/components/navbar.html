@@ -117,9 +117,15 @@
             <a href="/contact.html">
               <li class="hover:text-primary">Contact Us</li>
             </a>
-            <a href="{% url 'login' %}">
-              <i class="fa-solid fa-user hover:text-primary"></i>
-            </a>
+            {% if user.is_authenticated %}
+          <a href='{% url "dashboard" %}'>
+            <i class="fa-solid fa-user hover:text-primary"></i>
+          </a>
+          {% else %}
+          <a href='{% url "login" %}'>
+            <i class="fa-solid fa-user hover:text-primary"></i>
+          </a>
+          {% endif %}
             <button class="serviceFormBtn">
               GET A QUOTE <i class="fa-solid fa-arrow-right ml-1"></i>
             </button>

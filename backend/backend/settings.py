@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-f6#f&u8kduz$yf5i)=nmkev@!n971^s0_#vub8@1)!5()!1iy1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 AUTH_USER_MODEL = 'pecotechbd.CustomUser'
 
 # AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',  
-#     'pecotechbd.backends.CustomUserBackend',  
+#     'django.contrib.auth.backends.ModelBackend',
+#     'pecotechbd.backends.CustomUserBackend',
 # ]
 
 # AUTHENTICATION_BACKENDS = [
@@ -145,6 +145,8 @@ EMAIL_HOST_PASSWORD = 'mtpckcehlvlfqdrw'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
