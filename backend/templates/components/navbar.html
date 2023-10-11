@@ -57,22 +57,22 @@
       /></a>
       <div class="flex gap-4 items-center relative">
         <ul class="lg:flex gap-5 font-semibold hidden">
-          <a href="/index.html">
+          <a href="{% url 'home' %}">
             <li class="text-primary">Home</li>
           </a>
-          <a href="/about.html">
+          <a href="{% url 'about' %}">
             <li class="hover:text-primary">About</li>
           </a>
-          <a href="./services.html">
+          <a href="{% url 'services' %}">
             <li class="hover:text-primary">Services</li>
           </a>
-          <a href="/portfolio.html">
+          <a href="{% url 'portfolio' %}">
             <li class="hover:text-primary">Portfolio</li>
           </a>
-          <a href="/blog.html">
+          <a href="{% url 'blog' %}">
             <li class="hover:text-primary">Blog</li>
           </a>
-          <a href="/contact.html">
+          <a href="{% url 'contact' %}">
             <li class="hover:text-primary">Contact Us</li>
           </a>
           {% if user.is_authenticated %}
@@ -99,22 +99,22 @@
           id="menu"
         >
           <ul class="gap-5 flex flex-col font-semibold">
-            <a href="/index.html">
+            <a href="{% url 'home' %}">
               <li class="text-primary">Home</li>
             </a>
-            <a href="/about.html">
+            <a href="{% url 'about' %}">
               <li class="hover:text-primary">About</li>
             </a>
-            <a href="./services.html">
+            <a href="{% url 'services' %}">
               <li class="hover:text-primary">Services</li>
             </a>
-            <a href="/portfolio.html">
+            <a href="{% url 'portfolio' %}">
               <li class="hover:text-primary">Portfolio</li>
             </a>
-            <a href="/blog.html">
+            <a href="{% url 'blog' %}">
               <li class="hover:text-primary">Blog</li>
             </a>
-            <a href="/contact.html">
+            <a href="{% url 'contact' %}">
               <li class="hover:text-primary">Contact Us</li>
             </a>
             {% if user.is_authenticated %}

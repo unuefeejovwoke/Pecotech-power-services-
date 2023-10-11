@@ -14,4 +14,12 @@ urlpatterns = [
     path('profile/edit/', views.edit_profile, name='edit_profile'),
     #change password
     path('password_change/', PasswordsChangeView.as_view(template_name='accounts/password_change.html'), name='password_change'),
+
+
+    #pages
+    path('about/', views.about, name='about'),
+    path('services/', views.services, name='services'),
+    path('portfolio/', views.portfolio, name='portfolio'),
+    path('blog/', views.blog, name='blog'),
+    path('contact/', views.contact, name='contact'),
 ]

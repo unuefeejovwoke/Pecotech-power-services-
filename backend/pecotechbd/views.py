@@ -123,3 +123,18 @@ class PasswordsChangeView(PasswordChangeView):
         return super().form_valid(form)
 
 
+def about(request):
+    return HttpResponse("About Page -- Coming soon ")
+
+def services(request):
+    return HttpResponse("Services Page -- Coming soon ")
+
+def portfolio(request):
+    return HttpResponse("Portfolio Page -- Coming soon ")
+
+def blog(request):
+    return HttpResponse("Blog Page -- Coming soon ")
+
+def contact(request):
+    return HttpResponse("Contact Page -- Coming soon ")
+
