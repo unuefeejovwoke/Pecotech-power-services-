@@ -67,6 +67,7 @@
         <form class="mt-6" action="" method="POST">
           {% csrf_token %}
          {{ form|crispy }}
+         <input type="checkbox" id="showPassword"> Show Password
           <button class="w-full">Create account</button>
           <button class="w-full my-3 bg-white border-grey border">
             Sign in with Google
@@ -234,15 +235,19 @@
   <!-- ############## FOOTER ################ -->
   {% include "components/footer.html" %}
   <script>
-    const passwordInput = document.getElementById("passwordInput");
-    const showPasswordCheckbox = document.getElementById("showPassword");
+    const passwordInputs = document.querySelectorAll('[type="password"]');
+    const showPasswordCheckbox = document.getElementById('showPassword');
   
-    showPasswordCheckbox.addEventListener("change", function () {
-      if (showPasswordCheckbox.checked) {
-        passwordInput.type = "text";
-      } else {
-        passwordInput.type = "password";
-      }
+    showPasswordCheckbox.addEventListener('change', function() {
+        if (showPasswordCheckbox.checked) {
+            passwordInputs.forEach(function(input) {
+                input.type = 'text';
+            });
+        } else {
+            passwordInputs.forEach(function(input) {
+                input.type = 'password';
+            });
+        }
     });
   </script>
 </body>
