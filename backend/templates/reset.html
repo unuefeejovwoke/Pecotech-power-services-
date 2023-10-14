@@ -75,6 +75,7 @@
                 <label for="{{ form.new_password2.id_for_label }}">Confirm New Password:</label>
                 <input class="w-full border-b-2 p-3 outline-none" type="password" name="{{ form.new_password2.name }}" placeholder="Confirm New Password" required id="{{ form.new_password2.id_for_label }}" />
             </div>
+            <input type="checkbox" id="showPassword"> Show Password
             
             <button type="submit" class="w-full bg-primary flex items-center gap-3 justify-center">
                 Reset <i class="fa-solid fa-arrow-right"></i>
@@ -171,6 +172,23 @@
 
   <!-- ############## FOOTER ################ -->
   {% include "components/footer.html" %}
+  
+<script>
+  const passwordInputs = document.querySelectorAll('[type="password"]');
+  const showPasswordCheckbox = document.getElementById('showPassword');
+
+  showPasswordCheckbox.addEventListener('change', function() {
+      if (showPasswordCheckbox.checked) {
+          passwordInputs.forEach(function(input) {
+              input.type = 'text';
+          });
+      } else {
+          passwordInputs.forEach(function(input) {
+              input.type = 'password';
+          });
+      }
+  });
+</script>
 </body>
 
 <!-- Latest compiled and minified CSS -->
