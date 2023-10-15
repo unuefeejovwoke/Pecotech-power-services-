@@ -18,13 +18,13 @@ class UserRegisterForm(UserCreationForm):
     )
 
     password1 = forms.CharField(
-        widget=CustomTextWidget(attrs={"class":"w-full border-b-2 p-3 outline-none"}),
+        widget=forms.PasswordInput(attrs={"class":"w-full border-b-2 p-3 outline-none"}),
         label= "Password"
     )
 
     password2 = forms.CharField(
-        widget=CustomTextWidget(attrs={"class":"w-full border-b-2 p-3 outline-none"}),
-        label= "Comfirm password"
+        widget=forms.PasswordInput(attrs={"class":"w-full border-b-2 p-3 outline-none"}),
+        label= "Confirm password"
     )
 
     class Meta:
