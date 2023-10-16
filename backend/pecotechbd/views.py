@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
+from projects.models import Projects
 from django.contrib import messages
 from .forms import UserProfileForm, UserEditForm, CustomPasswordChangeForm
  
@@ -80,10 +81,12 @@ def custom_logout(request):
 
 @login_required
 def dashboard(request):
-    user_profile = UserProfile.objects.get(user=request.user)  
-    profile_picture = user_profile.profile_picture  
+    user_profile = UserProfile.objects.get(user=request.user)
+    profile_picture = user_profile.profile_picture
+    recent_updates = Projects.objects.filter(user=request.user).order_by('-date')[:5]
 
-    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture})
+    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture, 'recent_updates': recent_updates})
+
 
 
 @login_required
