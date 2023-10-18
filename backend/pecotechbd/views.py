@@ -1,10 +1,14 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import PasswordChangeForm
+
+from django.core.mail import send_mail
+from django.conf import settings
+
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from projects.models import Projects
+from projects.models import Projects, ServiceRequest
+from projects.forms import ServiceRequestForm
 from django.contrib import messages
 from .forms import UserProfileForm, UserEditForm, CustomPasswordChangeForm
  
@@ -84,9 +88,29 @@ def dashboard(request):
     user_profile = UserProfile.objects.get(user=request.user)
     profile_picture = user_profile.profile_picture
     recent_updates = Projects.objects.filter(user=request.user).order_by('-date')[:5]
+    service_requests = ServiceRequest.objects.filter(user=request.user).order_by('-submission_date')
 
-    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture, 'recent_updates': recent_updates})
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            service_request = form.save(commit=False)
+            service_request.user = request.user
+            service_request.save()
 
+            # Send an email notification to the admin
+            subject = "New Service Request"
+            message = f"User {request.user.username} has sent a new service request. Please review it."
+            from_email = settings.DEFAULT_FROM_EMAIL
+            recipient_list = ['seu7.tech@gmail.com']  # Admin's email address
+            send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("dashboard")
+
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture, 'recent_updates': recent_updates, 'form': form, 'service_requests': service_requests})
 
 
 @login_required
