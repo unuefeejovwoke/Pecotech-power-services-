@@ -5,6 +5,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from projects.models import Projects
+from projects.forms import ServiceRequestForm
 from django.contrib import messages
 from .forms import UserProfileForm, UserEditForm, CustomPasswordChangeForm
  
@@ -85,8 +86,23 @@ def dashboard(request):
     profile_picture = user_profile.profile_picture
     recent_updates = Projects.objects.filter(user=request.user).order_by('-date')[:5]
 
-    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture, 'recent_updates': recent_updates})
+    
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            service_request = form.save(commit=False)
+            service_request.user = request.user
+            service_request.save()
+            messages.success(request, "Your Request Has Been Sent, You Will recieve An Email Soon.")
+            return redirect("dashboard")
+        else:
+            
+            print(form.errors)
 
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture, 'recent_updates': recent_updates, 'form': form})
 
 
 @login_required

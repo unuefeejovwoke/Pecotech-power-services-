@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Projects
+from .models import Projects, ServiceRequest
 from django.core.mail import send_mail
 
 class ProjectsAdmin(admin.ModelAdmin):
@@ -22,3 +22,13 @@ class ProjectsAdmin(admin.ModelAdmin):
         send_mail(subject, message, from_email, recipient_list)
 
 admin.site.register(Projects, ProjectsAdmin)
+
+
+class ServiceRequestAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'email', 'service_required', 'status', 'submission_date')
+    list_filter = ('status', 'service_required')
+    search_fields = ('full_name', 'email', 'phone_number', 'status')
+    list_editable = ('status',)
+    list_per_page = 10
+
+admin.site.register(ServiceRequest, ServiceRequestAdmin)
