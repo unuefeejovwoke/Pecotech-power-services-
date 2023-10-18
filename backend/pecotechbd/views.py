@@ -82,6 +82,9 @@ def custom_logout(request):
 
 @login_required
 def dashboard(request):
+    if request.user.is_authenticated:
+        print('yes')
+        print(request.user)
     user_profile = UserProfile.objects.get(user=request.user)
     profile_picture = user_profile.profile_picture
     recent_updates = Projects.objects.filter(user=request.user).order_by('-date')[:5]
