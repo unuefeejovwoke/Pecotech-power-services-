@@ -7,7 +7,7 @@ from django.conf import settings
 
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from projects.models import Projects, ServiceRequest
+from projects.models import Projects, ServiceProject, ServiceRequest
 from projects.forms import ServiceRequestForm
 from django.contrib import messages
 from .forms import UserProfileForm, UserEditForm, CustomPasswordChangeForm
@@ -22,8 +22,37 @@ from .forms import UserRegisterForm
 
 
 # Create your views here.
+def create_service_request(user, form_data):
+    service_request = ServiceRequest.objects.create(
+        user=user,
+        full_name=form_data.get('full_name'),
+        email=form_data.get('email'),
+        phone_number=form_data.get('phone_number'),
+        service_required=form_data.get('service_required'),
+        uploaded_files=form_data.get('uploaded_files')
+    )
+
+    # Send an email notification to the admin
+    subject = "New Service Request"
+    message = f"User {user.username} has sent a new service request. Please review it."
+    from_email = settings.DEFAULT_FROM_EMAIL
+    recipient_list = ['seu7.tech@gmail.com']  # Admin's email address
+    send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+
+    return service_request
+
 def home(request):
-    return render(request , 'home.html')
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_service_request(request.user, form.cleaned_data)
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("home")
+
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'home.html', {'form': form})
 
 def login_view(request):
     # if request.user.is_authenticated:
@@ -89,6 +118,7 @@ def dashboard(request):
     profile_picture = user_profile.profile_picture
     recent_updates = Projects.objects.filter(user=request.user).order_by('-date')[:5]
     service_requests = ServiceRequest.objects.filter(user=request.user).order_by('-submission_date')
+    user_projects = ServiceProject.objects.filter(user=request.user)
 
     if request.method == 'POST':
         form = ServiceRequestForm(request.POST, request.FILES)
@@ -110,7 +140,7 @@ def dashboard(request):
     else:
         form = ServiceRequestForm()
 
-    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture, 'recent_updates': recent_updates, 'form': form, 'service_requests': service_requests})
+    return render(request, 'accounts/profile.html', {'profile_picture': profile_picture, 'recent_updates': recent_updates, 'form': form, 'service_requests': service_requests, 'user_projects': user_projects})
 
 
 @login_required
@@ -151,13 +181,13 @@ class PasswordsChangeView(PasswordChangeView):
 
 
 def about(request):
-    return HttpResponse("About Page -- Coming soon ")
+    return render(request, 'pages/about.html')
 
 def services(request):
-    return HttpResponse("Services Page -- Coming soon ")
+    return render(request, 'pages/services.html')
 
 def portfolio(request):
-    return HttpResponse("Portfolio Page -- Coming soon ")
+    return render(request, 'pages/portfolio.html')
 
 def blog(request):
     return HttpResponse("Blog Page -- Coming soon ")

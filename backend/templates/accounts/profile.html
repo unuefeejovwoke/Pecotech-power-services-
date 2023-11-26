@@ -132,49 +132,23 @@
 
                 <div class="tab-pane hidden">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
+                    {% for project in user_projects %}
                     <div class="shadow-md rounded-lg overflow-hidden max-w-[300px] mx-auto">
-                      <img src="{% static './assets/img/solarinst.webp' %}" alt="solar installation" />
+                      <img src="{{ project.image.url }}" alt="solar installation" />
                       <div class="p-4">
                         <div class="text-center mb-3">
-                          <h1 class="font-semibold text-lg">Solar Installation</h1>
-                          <p>No. 3 Airport Rd. Warri Delta State</p>
+                          <h1 class="font-semibold text-lg">{{project.title}}</h1>
+                          <p>{{project.location}}</p>
                         </div>
-                        <p>Start Date: 24/07/2023</p>
-                        <p>Finish Date: 30/11/2023</p>
+                        <p>Start Date: <span style="font-size: 14px; font-weight: bold;">{{project.start_date}}</span> </p>
+                        <p>Finish Date: <span style="font-size: 14px; font-weight: bold;">{{project.finish_date}}</span> </p>
                         <p class="font-semibold">
-                          Status: <span class="text-green-500">Completed</span>.
+                          Status: <span class="text-green-500">{{project.get_status_display}}</span>
                         </p>
                       </div>
                     </div>
-                    <div class="shadow-md rounded-lg overflow-hidden max-w-[300px] mx-auto">
-                      <img src="{% static './assets/img/cctvinst.webp' %}" alt="solar installation" />
-                      <div class="p-4">
-                        <div class="text-center mb-3">
-                          <h1 class="font-semibold text-lg">CCTV Installation</h1>
-                          <p>No. 3 Airport Rd. Warri Delta State</p>
-                        </div>
-                        <p>Start Date: 24/07/2023</p>
-                        <p>Finish Date: nil</p>
-                        <p class="font-semibold">
-                          Status: <span class="text-primary">In Progress</span>.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="shadow-md rounded-lg overflow-hidden max-w-[300px] mx-auto">
-                      <img src="{% static './assets/img/cctvinst.webp' %}" alt="solar installation" />
-                      <div class="p-4">
-                        <div class="text-center mb-3">
-                          <h1 class="font-semibold text-lg">Home Automation</h1>
-                          <p>No. 3 Airport Rd. Warri Delta State</p>
-                        </div>
-                        <p>Start Date: 24/07/2023</p>
-                        <p>Finish Date: nil</p>
-                        <p class="font-semibold">
-                          Status:
-                          <span class="text-red-500">Still in Review</span>.
-                        </p>
-                      </div>
-                    </div>
+                    {% endfor %}
+                    
                   </div>
                   <div class="text-center mt-7">
                     <p>No more Projects.</p>
@@ -287,8 +261,7 @@
           <!-- Disable the button and display "Sending" message -->
           <button id="submit-button" style="background-color: #ffaf1d;" class="w-full" type="submit">Submit Request</button>
         </form>
-        
-        
+
         
       </div>
     </div>
