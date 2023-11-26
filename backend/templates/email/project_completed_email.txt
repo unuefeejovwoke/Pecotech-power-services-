@@ -1,0 +1,3 @@
+Your project "{{ project.title }}" has been completed.
+
+Visit your dashboard to view the details: {{ dashboard_link }}
