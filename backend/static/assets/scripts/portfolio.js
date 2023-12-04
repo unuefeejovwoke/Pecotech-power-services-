@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const images = [
-    { category: "cctv", src: "./assets/img/cctv1.webp" },
-    { category: "cctv", src: "./assets/img/cctv.webp" },
-    { category: "cctv", src: "./assets/img/cctvinst.webp" },
+    { category: "cctv", src: "/static/assets/img/cctv1.webp" },
+    { category: "cctv", src: "/static/assets/img/cctv.webp" },
+    { category: "cctv", src: "/static/assets/img/cctvinst.webp" },
 
-    { category: "solar", src: "./assets/img/sola.webp" },
-    { category: "solar", src: "./assets/img/solar1.webp" },
-    { category: "solar", src: "./assets/img/solarinst.webp" },
+    { category: "solar", src: "/static/assets/img/sola.webp" },
+    { category: "solar", src: "/static/assets/img/solar1.webp" },
+    { category: "solar", src: "/static/assets/img/solarinst.webp" },
 
-    { category: "wiring", src: "./assets/img/fa.webp" },
-    { category: "wiring", src: "./assets/img/idoor.webp" },
-    { category: "wiring", src: "./assets/img/wiring1.webp" },
-    { category: "wiring", src: "./assets/img/wiring2.webp" },
-    { category: "wiring", src: "./assets/img/wiring3.webp" },
+    { category: "wiring", src: "/static/assets/img/fa.webp" },
+    { category: "wiring", src: "/static/assets/img/idoor.webp" },
+    { category: "wiring", src: "/static/assets/img/wiring1.webp" },
+    { category: "wiring", src: "/static/assets/img/wiring2.webp" },
+    { category: "wiring", src: "/static/assets/img/wiring3.webp" },
 
-    { category: "home-automation", src: "./assets/img/auto1.webp" },
-    { category: "home-automation", src: "./assets/img/auto2.webp" },
-    { category: "home-automation", src: "./assets/img/auto3.webp" },
+    { category: "home-automation", src: "/static/assets/img/auto1.webp" },
+    { category: "home-automation", src: "/static/assets/img/auto2.webp" },
+    { category: "home-automation", src: "/static/assets/img/auto3.webp" },
   ];
 
   // Function to display images in a given category

@@ -43,3 +43,17 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.email
 
+
+class BlogPost(models.Model):
+    category = models.CharField(max_length=50)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    quote_content = models.TextField(blank=True, null=True)
+    date = models.DateField()
+    image = models.ImageField(upload_to='blog_images/')
+    
+    def get_truncated_content(self):
+        return self.content[:50]  
+    
+    def __str__(self):
+        return self.title
