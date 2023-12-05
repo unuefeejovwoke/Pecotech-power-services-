@@ -428,6 +428,10 @@ video {
   height: auto;
 }
 
+.commentimg{
+  height: 30px;
+}
+
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
 [hidden] {
