@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content:
         "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
       date: "02 Aug, 2023",
-      image: "/assets/img/home.webp",
+      image: "/static/assets/img/home.webp",
     },
     {
       category: "Category 2",
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content:
         "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
       date: "24 Jul, 2023",
-      image: "/assets/img/cctv.webp",
+      image: "/static/assets/img/cctv.webp",
     },
     {
       category: "Category 3",
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content:
         "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
       date: "16 Jul, 2023",
-      image: "/assets/img/elec.webp",
+      image: "/static/assets/img/elec.webp",
     },
     {
       category: "Category 2",
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content:
         "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
       date: "04 Jul, 2023",
-      image: "/assets/img/elec.webp",
+      image: "/static/assets/img/elec.webp",
     },
     {
       category: "Category 1",
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content:
         "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
       date: "15 Jun, 2023",
-      image: "/assets/img/elec.webp",
+      image: "/static/assets/img/elec.webp",
     },
     {
       category: "Category 1",
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content:
         "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
       date: "01 Jun, 2023",
-      image: "/assets/img/elec.webp",
+      image: "/static/assets/img/elec.webp",
     },
     // Add more blog posts here
   ];

@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -14,7 +14,7 @@ from .forms import UserProfileForm, UserEditForm, CustomPasswordChangeForm
  
 import smtplib
 from django.core.mail import EmailMessage
-from .models import UserProfile
+from .models import BlogPost, UserProfile
 
 
 from django.http import HttpResponse
@@ -181,7 +181,17 @@ class PasswordsChangeView(PasswordChangeView):
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_service_request(request.user, form.cleaned_data)
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("home")
+
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'pages/about.html', {'form': form})
 
 def services(request):
     return render(request, 'pages/services.html')
@@ -190,8 +200,37 @@ def portfolio(request):
     return render(request, 'pages/portfolio.html')
 
 def blog(request):
-    return HttpResponse("Blog Page -- Coming soon ")
+    blog_posts = BlogPost.objects.all()
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_service_request(request.user, form.cleaned_data)
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("home")
+
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'pages/blog.html', {'form': form, 'blog_posts': blog_posts})
+
+def blog_detail(request, blog_id):
+    blog = get_object_or_404(BlogPost, id=blog_id)
+    content_parts = blog.content.split(blog.quote_content)
+
+    return render(request, 'pages/blog_detail.html', {'blog': blog, 'truncated_content': content_parts[0][:300],  # Truncate the first part as needed
+        'quote_content': blog.quote_content,
+        'remaining_content': content_parts[1],})
 
 def contact(request):
-    return HttpResponse("Contact Page -- Coming soon ")
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_service_request(request.user, form.cleaned_data)
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("home")
+
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'pages/contact.html', {'form': form})
 
