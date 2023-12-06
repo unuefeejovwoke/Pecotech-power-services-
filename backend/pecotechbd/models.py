@@ -52,8 +52,23 @@ class BlogPost(models.Model):
     date = models.DateField()
     image = models.ImageField(upload_to='blog_images/')
     
-    def get_truncated_content(self):
-        return self.content[:50]  
+    def split_content(self):
+        if self.quote_content:
+            parts = self.content.split(self.quote_content, 1)
+            if len(parts) > 1:
+                return parts
+        return [self.content, None]
+    
     
     def __str__(self):
         return self.title
+    
+
+class Comment(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    content = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.blog_post.title}"

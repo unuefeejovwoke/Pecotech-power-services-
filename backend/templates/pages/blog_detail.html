@@ -1,4 +1,6 @@
 {% load static %}
+{% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,6 +49,13 @@
     />
     <link rel="stylesheet" href="{% static './assets/vendor/all.min.css' %}" />
   </head>
+  <style>
+    /* Add this style to your CSS or include it in the template */
+    .custom-link {
+        color: #3498db;  /* Change this to the desired text color */
+        /* Add any other styles you want, such as text-decoration, hover effects, etc. */
+    }
+  </style>
   <body class="font-[Montserrat]">
     <!-- TOP BANNER -->
     {% include "components/navbar.html" %}
@@ -68,6 +77,7 @@
         </div>
       </section>
     </div>
+    {% include "alerts/alert.html" %}
     <!-- ############## END HERO ########### -->
 
     <!-- ######### CONTENT ######### -->
@@ -104,63 +114,45 @@
             >
           </div>
          <!-- Display the truncated content -->
-        <p class="leading-relaxed mb-3">{{ truncated_content|safe }}</p>
+        <p class="leading-relaxed mb-3">{{ truncated_content|linebreaksbr|urlizetrunc:40|add_class_to_links:"custom-link"|safe  }}</p>
 
         <!-- Add a condition to check if quote_content is present -->
         {% if quote_content %}
             <div class="shadow-lg p-5 rounded-lg shadow-black/30">
                 <i class="fa-solid fa-quote-left text-4xl text-primary"></i>
                 <p>
-                    {{ quote_content|safe }}
+                    {{ quote_content|linebreaksbr|urlizetrunc:40|add_class_to_links:"custom-link"|safe }}
                 </p>
             </div>
         {% endif %}
 
         <!-- Display the remaining content after the quote -->
         <p class="leading-relaxed mb-3">
-            {{ remaining_content|safe }}
+            {{ remaining_content|linebreaksbr|urlizetrunc:40|add_class_to_links:"custom-link"|safe  }}
         </p>
           <div>
             <h1 class="font-bold text-2xl">Comments(10)</h1>
             <div class="space-y-3 mt-3">
+              {% for comment in comments %}
               <div class="bg-grey p-3 flex gap-2 rounded-lg">
                 <div class="max-w-[30%]">
-                  <img src="{% static './assets/img/testim.webp' %}" alt="commenters name" />
+                  <img src="{{comment.user.userprofile.profile_picture.url}}" width="30" height="50" alt="commenters name" style="border-radius: 50%;" />
                 </div>
                 <div>
                   <h2 class="font-bold text-lg">
-                    Ivan Ramirez
-                    <small class="text-primary text-xs">15mins ago</small>
+                    {{comment.user.username}}
+                    <small class="text-primary text-xs">{{comment.date_added}}</small>
                   </h2>
                   <p class="py-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corporis cum vitae exercitationem totam et facere sint
-                    voluptas beatae non sed!
+                    {{comment.content|title}}
                   </p>
                   <span class="text-primary cursor-pointer"
                     ><i class="fa-solid fa-reply"></i> Reply</span
                   >
                 </div>
               </div>
-              <div class="bg-grey p-3 flex gap-2 rounded-lg">
-                <div class="max-w-[30%]">
-                  <img src="{% static './assets/img/testim.webp' %}" alt="commenters name" />
-                </div>
-                <div>
-                  <h2 class="font-bold text-lg">
-                    Elisabeth
-                    <small class="text-primary text-xs">15mins ago</small>
-                  </h2>
-                  <p class="py-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corporis cum vitae exercitationem totam et facere sint
-                    voluptas beatae non sed!
-                  </p>
-                  <span class="text-primary cursor-pointer"
-                    ><i class="fa-solid fa-reply"></i> Reply</span
-                  >
-                </div>
-              </div>
+              {% endfor %}
+              
             </div>
             <div class="text-center">
               <p class="underline font-semibold mt-3 cursor-pointer">
@@ -251,17 +243,9 @@
             <div class="text-center">
               <h1 class="font-semibold text-xl">Leave A Comment</h1>
             </div>
-            <form action="" class="my-4 space-y-3">
-              <input
-                type="text"
-                placeholder="Name*"
-                class="border-black border outline-none w-full rounded-lg p-2"
-              />
-              <input
-                type="email"
-                placeholder="Email*"
-                class="border-black border outline-none w-full rounded-lg p-2"
-              />
+            <form action="" class="my-4 space-y-3" >
+      
+              
               <textarea
                 name="comment"
                 id=""

@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from .models import CustomUser
+from .models import Comment, CustomUser
 from .models import UserProfile
 from django import forms
 from django.utils.translation import gettext_lazy as _
@@ -96,3 +96,13 @@ class CustomPasswordChangeForm(PasswordChangeForm):
     class Meta:
         model = CustomUser
         fields = ('old_password', 'new_password1', 'new_password2')
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = [ 'content']
+
+    widgets = {
+        'content': forms.Textarea(attrs={'placeholder': 'Comment', 'class': 'border-b-2 w-full rounded-lg p-2'}),
+    }

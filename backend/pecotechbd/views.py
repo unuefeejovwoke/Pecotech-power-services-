@@ -215,11 +215,22 @@ def blog(request):
 
 def blog_detail(request, blog_id):
     blog = get_object_or_404(BlogPost, id=blog_id)
-    content_parts = blog.content.split(blog.quote_content)
+    content_parts = blog.split_content()
 
-    return render(request, 'pages/blog_detail.html', {'blog': blog, 'truncated_content': content_parts[0][:300],  # Truncate the first part as needed
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_service_request(request.user, form.cleaned_data)
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("home")
+
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'pages/blog_detail.html', {'blog': blog,
+        'truncated_content': content_parts[0][:],  # Truncate the first part as needed
         'quote_content': blog.quote_content,
-        'remaining_content': content_parts[1],})
+        'remaining_content': content_parts[1], "form":form,})
 
 def contact(request):
     if request.method == 'POST':
