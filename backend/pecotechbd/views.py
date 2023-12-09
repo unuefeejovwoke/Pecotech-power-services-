@@ -10,7 +10,9 @@ from django.urls import reverse_lazy
 from projects.models import Projects, ServiceProject, ServiceRequest
 from projects.forms import ServiceRequestForm
 from django.contrib import messages
-from .forms import UserProfileForm, UserEditForm, CustomPasswordChangeForm
+from .forms import CommentForm, UserProfileForm, UserEditForm, CustomPasswordChangeForm
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
  
 import smtplib
 from django.core.mail import EmailMessage
@@ -194,13 +196,6 @@ def about(request):
     return render(request, 'pages/about.html', {'form': form})
 
 def services(request):
-    return render(request, 'pages/services.html')
-
-def portfolio(request):
-    return render(request, 'pages/portfolio.html')
-
-def blog(request):
-    blog_posts = BlogPost.objects.all()
     if request.method == 'POST':
         form = ServiceRequestForm(request.POST, request.FILES)
         if form.is_valid():
@@ -208,29 +203,85 @@ def blog(request):
             messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
             return redirect("home")
 
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'pages/services.html', {'form': form})
+
+def portfolio(request):
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_service_request(request.user, form.cleaned_data)
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("home")
+
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, 'pages/portfolio.html', {'form': form})
+
+
+def blog(request):
+    blog_posts = BlogPost.objects.all()
+
+    # Configure pagination
+    paginator = Paginator(blog_posts, 5)  # Show 5 blog posts per page
+    page = request.GET.get('page', 1)
+
+    try:
+        blog_posts = paginator.page(page)
+    except PageNotAnInteger:
+        blog_posts = paginator.page(1)
+    except EmptyPage:
+        blog_posts = paginator.page(paginator.num_pages)
+
+    if request.method == 'POST':
+        form = ServiceRequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_service_request(request.user, form.cleaned_data)
+            messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
+            return redirect("home")
     else:
         form = ServiceRequestForm()
 
     return render(request, 'pages/blog.html', {'form': form, 'blog_posts': blog_posts})
 
+
 def blog_detail(request, blog_id):
     blog = get_object_or_404(BlogPost, id=blog_id)
     content_parts = blog.split_content()
+    recent_posts = BlogPost.objects.order_by('-date')[:2] 
 
     if request.method == 'POST':
-        form = ServiceRequestForm(request.POST, request.FILES)
-        if form.is_valid():
-            create_service_request(request.user, form.cleaned_data)
+        comment_form = CommentForm(request.POST)
+        service_request_form = ServiceRequestForm(request.POST, request.FILES)
+
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.blog_post = blog
+            comment.save()
+            messages.success(request, "Your comment has been posted.")
+            return redirect("blog_detail", blog_id=blog_id)
+
+        elif service_request_form.is_valid():
+            create_service_request(request.user, service_request_form.cleaned_data)
             messages.success(request, "Your Request Has Been Sent, You Will Receive An Email Soon.")
             return redirect("home")
-
     else:
-        form = ServiceRequestForm()
+        comment_form = CommentForm()
+        service_request_form = ServiceRequestForm()
 
-    return render(request, 'pages/blog_detail.html', {'blog': blog,
-        'truncated_content': content_parts[0][:],  # Truncate the first part as needed
+    return render(request, 'pages/blog_detail.html', {
+        'blog': blog,
+        'truncated_content': content_parts[0][:],
         'quote_content': blog.quote_content,
-        'remaining_content': content_parts[1], "form":form,})
+        'remaining_content': content_parts[1],
+        'comment_form': comment_form,
+        'form': service_request_form,
+        'recent_posts': recent_posts,
+    })
 
 def contact(request):
     if request.method == 'POST':
