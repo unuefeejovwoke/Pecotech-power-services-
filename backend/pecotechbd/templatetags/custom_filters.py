@@ -17,9 +17,6 @@ def time_based_greeting(value):
         return "Good evening"
 
 
-
-register = template.Library()
-
 @register.filter(name='add_class_to_links')
 @stringfilter
 def add_class_to_links(value, css_class):

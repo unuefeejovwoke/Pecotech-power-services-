@@ -111,28 +111,25 @@
             </div>
         {% endfor %}
           </div>
-          <div
-            class="mx-auto flex items-center justify-center gap-1 text-white mt-7 flex-wrap"
-          >
-            <button class="h-10 w-10 flex items-center justify-center">
-              <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <button class="h-10 w-10 flex items-center justify-center">
-              1
-            </button>
-            <button class="h-10 w-10 flex items-center justify-center">
-              2
-            </button>
-            <button class="h-10 w-10 flex items-center justify-center">
-              3
-            </button>
-            <button class="h-10 w-10 flex items-center justify-center">
-              4
-            </button>
-            <button class="h-10 w-10 flex items-center justify-center">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
+          <div class="mx-auto flex items-center justify-center gap-1 text-white mt-7 flex-wrap">
+            {% if blog_posts.has_previous %}
+                <a href="?page=1" class="h-10 w-10 flex items-center justify-center btn" style="background-color: #ffaf1d;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            {% endif %}
+        
+            {% for num in blog_posts.paginator.page_range %}
+                <a href="?page={{ num }}" class="h-10 w-10 flex items-center justify-center btn" style="background-color: #ffaf1d;">
+                    {{ num }}
+                </a>
+            {% endfor %}
+        
+            {% if blog_posts.has_next %}
+                <a href="?page={{ blog_posts.paginator.num_pages }}" class="h-10 w-10 flex items-center justify-center btn" style="background-color: #ffaf1d;">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            {% endif %}
+        </div>
         </div>
       </div>
     </div>

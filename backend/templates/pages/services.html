@@ -245,102 +245,48 @@
             shortly.
           </p>
         </div>
-        <form action="">
-          <label for="name">Full Name</label>
-          <input
-            class="w-full border mt-1 mb-3 border-black rounded-lg outline-none p-2"
-            type="text"
-            placeholder="Full Name"
-          />
-          <label for="email">Email Address</label>
-          <input
-            class="w-full border mt-1 mb-3 border-black rounded-lg outline-none p-2"
-            type="email"
-            name="email"
-            id=""
-            placeholder="Email Address"
-          />
-          <label for="phone">Phone Number</label>
-          <input
-            class="w-full border mt-1 mb-3 border-black rounded-lg outline-none p-2"
-            type="tel"
-            name="phone"
-            id=""
-            placeholder="Phone Number"
-          />
+        <form method="post" enctype="multipart/form-data" class="w-full" id="service-request-form" onsubmit="submitForm(event);">
+          {% csrf_token %}
+          {{ form.full_name.label_tag }}
+          {{ form.full_name }}
+          {{ form.email.label_tag }}
+          {{ form.email }}
+          {{ form.phone_number.label_tag }}
+          {{ form.phone_number }}
           <span class="flex justify-between relative mb-2">
             <p class="font-semibold">Send Quotation</p>
-            <span id="srf-info-btn">
-              <i class="fa-regular fa-circle-question text-primary"></i>
-            </span>
-
-            <div
-              class="absolute bg-primary p-3 rounded-lg top-5 hidden"
-              id="srf-info"
-            >
+            <span id="srf-info-btn"><i class="fa-regular fa-circle-question text-primary"></i></span>
+            <div class="absolute bg-primary p-3 rounded-lg top-5 hidden" id="srf-info">
               <h2 class="font-semibold">Send Quotation</h2>
-              <p>
-                Have a building drawing you want us to wire, or an estimate you
-                want us to work with, or a sample (CCTV camera, solar panel,
-                etc) of what you require us to install for you? send it via
-                image or PDF
-              </p>
+              <p>Have a building drawing you want us to wire, or an estimate you want us to work with, or a sample (CCTV camera, solar panel, etc) of what you require us to install for you? send it via image or PDF</p>
             </div>
           </span>
-          <span>
-            <label for="pdf"
-              >PDF
-              <input
-                type="file"
-                name="pdf"
-                id=""
-                placeholder="pdf"
-                (change)="fileChanged($event)"
-            /></label>
-            <label for="pdf"
-              >Image
-              <input
-                type="file"
-                name="pdf"
-                id=""
-                placeholder="pdf"
-                (change)="fileChanged($event)"
-            /></label>
-
-            <!-- <input type="file" name="image" id="" placeholder="image" /> -->
-          </span>
-
-          <p class="text-primary my-2 font-semibold">
-            What service do you require?
-          </p>
+          {{ form.uploaded_files.label_tag }}
+          {{ form.uploaded_files }}
+          <p class="text-primary my-2 font-semibold">What service do you require?</p>
           <span class="flex justify-between">
-            <span class="flex gap-2 items-center">
-              <input
-                class="text-primary"
-                type="radio"
-                name="cctv"
-                id=""
-              /><label for="CCTV">CCTV Installation</label>
-            </span>
-            <span class="flex gap-2 items-center">
-              <input type="radio" name="solar" id="" /><label for="CCTV"
-                >Solar Installation</label
-              >
-            </span>
+            <label for="{{ form.service_required.id_for_label }}">
+              <input type="radio" id="{{ form.service_required.id_for_label }}" name="{{ form.service_required.name }}" value="cctv" {% if form.service_required.value == "cctv" %}checked{% endif %}>
+              CCTV Installation
+            </label>
+            <label for="{{ form.service_required.id_for_label }}">
+              <input type="radio" id="{{ form.service_required.id_for_label }}" name="{{ form.service_required.name }}" value="solar" {% if form.service_required.value == "solar" %}checked{% endif %}>
+              Solar Installation
+            </label>
           </span>
           <span class="flex justify-between my-2">
-            <span class="flex gap-2 items-center">
-              <input type="radio" name="home" id="" /><label for="CCTV"
-                >Home Automation</label
-              >
-            </span>
-            <span class="flex gap-2 items-center">
-              <input type="radio" name="electrical" id="" /><label for="CCTV"
-                >Electrical Wiring</label
-              >
-            </span>
+            <label for="{{ form.service_required.id_for_label }}">
+              <input type="radio" id="{{ form.service_required.id_for_label }}" name="{{ form.service_required.name }}" value="home" {% if form.service_required.value == "home" %}checked{% endif %}>
+              Home Automation
+            </label>
+            <label for="{{ form.service_required.id_for_label }}">
+              <input type="radio" id="{{ form.service_required.id_for_label }}" name="{{ form.service_required.name }}" value="electrical" {% if form.service_required.value == "electrical" %}checked{% endif %}>
+              Electrical Wiring
+            </label>
           </span>
-          <button class="w-full">Submit Request</button>
+        
+          <!-- Disable the button and display "Sending" message -->
+          <button id="submit-button" style="background-color: #ffaf1d;" class="w-full" type="submit">Submit Request</button>
         </form>
       </div>
     </div>
@@ -348,6 +294,21 @@
 
     <!-- ############## FOOTER ################ -->
     {% include "components/footer.html" %}
+    <script>
+      function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+    
+        // Show "Sending" message
+        const submitButton = document.querySelector('#submit-button');
+        submitButton.innerHTML = 'Sending Please Wait!...';
+        submitButton.style.backgroundColor = '#454a4a'; // Change the background color
+        submitButton.disabled = true;
+    
+        // Submit the form
+        const form = document.querySelector('#service-request-form');
+        form.submit();
+      }
+    </script>
   </body>
 
   <script src="{% static './assets/vendor/all.min.js' %}"></script>

@@ -102,16 +102,13 @@
           </div>
           <div class="flex justify-between items-center flex-wrap gap-2 py-4">
             <p class="font-semibold">Posted By: Admin</p>
-            <p><i class="fa-solid fa-comment text-primary"></i> 54 Comments</p>
+            <p><i class="fa-solid fa-comment text-primary"></i> Comments({{ blog.comments.count }})</p>
           </div>
           <div class="border-2 border-primary rounded-lg overflow-hidden">
             <img class="w-full" src="{{ blog.image.url }}" alt="{{ blog.title }}" />
           </div>
           <div class="flex justify-end py-4 border-grey border-b">
-            <span class="flex items-center gap-2"
-              ><i class="fa-solid fa-tags text-primary"></i>
-              <p>Tags: CCTV, Security, ...</p></span
-            >
+            
           </div>
          <!-- Display the truncated content -->
         <p class="leading-relaxed mb-3">{{ truncated_content|linebreaksbr|urlizetrunc:40|add_class_to_links:"custom-link"|safe  }}</p>
@@ -131,12 +128,12 @@
             {{ remaining_content|linebreaksbr|urlizetrunc:40|add_class_to_links:"custom-link"|safe  }}
         </p>
           <div>
-            <h1 class="font-bold text-2xl">Comments(10)</h1>
+            <h1 class="font-bold text-2xl">Comments({{ blog.comments.count }})</h1>
             <div class="space-y-3 mt-3">
-              {% for comment in comments %}
+              {% for comment in blog.comments.all %}
               <div class="bg-grey p-3 flex gap-2 rounded-lg">
                 <div class="max-w-[30%]">
-                  <img src="{{comment.user.userprofile.profile_picture.url}}" width="30" height="50" alt="commenters name" style="border-radius: 50%;" />
+                  <img class="commentimg" src="{{comment.user.userprofile.profile_picture.url}}" width="30" height="50" alt="commenters name" style="border-radius: 50%;" />
                 </div>
                 <div>
                   <h2 class="font-bold text-lg">
@@ -146,9 +143,7 @@
                   <p class="py-2">
                     {{comment.content|title}}
                   </p>
-                  <span class="text-primary cursor-pointer"
-                    ><i class="fa-solid fa-reply"></i> Reply</span
-                  >
+                  
                 </div>
               </div>
               {% endfor %}
@@ -170,91 +165,51 @@
               <ul class="py-4">
                 <a href="#">
                   <li class="flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-arrow-right"></i>Power Tools
+                    <i class="fa-solid fa-arrow-right"></i>{{blog.category}}
                   </li>
                 </a>
-                <a href="#">
-                  <li class="flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-arrow-right"></i>Electrical & Lighting
-                  </li>
-                </a>
-                <a href="#">
-                  <li class="flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-arrow-right"></i>Ware Accessories
-                  </li>
-                </a>
-                <a href="#">
-                  <li class="flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-arrow-right"></i>Panel Installation
-                  </li>
-                </a>
-                <a href="#">
-                  <li class="flex items-center gap-2 mt-1">
-                    <i class="fa-solid fa-arrow-right"></i>Home Automation
-                  </li>
-                </a>
+                
               </ul>
             </div>
             <h1 class="font-bold text-2xl border-black border-t-2 pt-4">
-              <span class="border-primary border-b-2">RECENT</span> POSTS
+              
+                <span class="border-primary border-b-2">RECENT</span> POSTS
             </h1>
             <div class="space-y-2 mt-5">
-              <div>
-                <a href="#">
-                  <div class="flex gap-2 items-center">
-                    <div class="w-1/3 rounded-lg overflow-hidden">
-                      <img src="{% static './assets/img/cctv.webp' %}" alt="post image" />
+                {% for post in recent_posts %}
+                    <div>
+                        <a href="{% url 'blog_detail' blog_id=post.id %}">
+                            <div class="flex gap-2 items-center">
+                                <div class="w-1/3 rounded-lg overflow-hidden">
+                                    <img src="{{ post.image.url }}" alt="{{ post.title }} image" />
+                                </div>
+                                <div class="w-2/3 text-xs sm:text-lg md:text-2xl md:space-y-4 lg:text-sm">
+                                    <p>{{ post.title }}</p>
+                                    <p class="text-primary flex items-center gap-2">
+                                        <i class="fa-solid fa-clock"></i>{{ post.date|date:"M d, Y" }}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div
-                      class="w-2/3 text-xs sm:text-lg md:text-2xl md:space-y-4 lg:text-sm"
-                    >
-                      <p>
-                        The technological advancements over the last decades
-                      </p>
-                      <p class="text-primary flex items-center gap-2">
-                        <i class="fa-solid fa-clock"></i>Feb 02, 2023
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div>
-                <a href="#">
-                  <div class="flex gap-2 items-center">
-                    <div class="w-1/3 rounded-lg overflow-hidden">
-                      <img src="{% static './assets/img/elec.webp' %}" alt="post image" />
-                    </div>
-                    <div
-                      class="w-2/3 text-xs sm:text-lg md:text-2xl md:space-y-4 lg:text-sm"
-                    >
-                      <p>
-                        The technological advancements over the last decades
-                      </p>
-                      <p class="text-primary flex items-center gap-2">
-                        <i class="fa-solid fa-clock"></i>Feb 13, 2023
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
+                {% endfor %}
             </div>
-          </div>
+            
           <div class="shadow-lg shadow-black/30 my-6 p-3 rounded-lg">
             <div class="text-center">
               <h1 class="font-semibold text-xl">Leave A Comment</h1>
             </div>
-            <form action="" class="my-4 space-y-3" >
-      
+            <form method="post" class="my-4 space-y-3">
+              {% csrf_token %}
               
               <textarea
-                name="comment"
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Comment"
-                class="border-black border outline-none w-full rounded-lg p-2"
+                  name="content"
+                  cols="30"
+                  rows="10"
+                  placeholder="Comment"
+                  class="border-black border outline-none w-full rounded-lg p-2"
               ></textarea>
-              <button class="mx-auto">Post Comment</button>
+              <button type="submit" class="mx-auto" style="background-color: #ffaf1d;">Post Comment</button>
             </form>
           </div>
         </aside>
