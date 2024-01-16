@@ -44,6 +44,9 @@ def create_service_request(user, form_data):
     return service_request
 
 def home(request):
+    blog_posts = BlogPost.objects.all()[:3]
+
+    
     if request.method == 'POST':
         form = ServiceRequestForm(request.POST, request.FILES)
         if form.is_valid():
@@ -54,7 +57,7 @@ def home(request):
     else:
         form = ServiceRequestForm()
 
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'home.html', {'form': form, 'blog_posts': blog_posts})
 
 def login_view(request):
     # if request.user.is_authenticated:
