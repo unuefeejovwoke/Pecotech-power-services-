@@ -428,6 +428,12 @@ video {
   height: auto;
 }
 
+.commentimg{
+  height: 30px;
+}
+.active{
+  color: rgb(241, 153, 76);
+}
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
 [hidden] {
